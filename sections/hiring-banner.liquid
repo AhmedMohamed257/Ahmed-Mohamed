@@ -1,19 +1,7 @@
 {{ 'hiring.css' | asset_url | stylesheet_tag }}
 {{ 'hiring.js' | asset_url | script_tag }}
 
-{%- comment -%}
-  Section: Hiring Banner
-  ------------------------------------------------------------------
-  Custom section built from scratch (no Dawn snippets/sections reused).
-  Structure:
-    1. Top bar   -> logo, message, "Choose Gift" button (yellow, black
-                    sweep on hover), hamburger icon (mobile only)
-    2. Hero      -> line-art artwork background, heading, description,
-                    "Shop Now" button (black, yellow sweep on hover)
-    3. Info bar  -> single line of footer copy
-  All copy fields are pulled from section.settings so merchants can
-  edit every string from the theme customizer.
-{%- endcomment -%}
+
 
 <section class="hiring-banner" id="hiring-banner-{{ section.id }}">
 
@@ -60,59 +48,45 @@
   <!-- 2. Hero -->
   <div class="hb-hero">
 
-    {%- if section.settings.artwork_image -%}
-      <img
-        class="hb-hero__artwork"
-        srcset="
-          {{ section.settings.artwork_image | image_url: width: 800 }} 800w,
-          {{ section.settings.artwork_image | image_url: width: 1440 }} 1440w,
-          {{ section.settings.artwork_image | image_url: width: 2000 }} 2000w
-        "
-        sizes="100vw"
-        src="{{ section.settings.artwork_image | image_url: width: 1440 }}"
-        alt=""
-        role="presentation"
-        loading="eager"
-        width="{{ section.settings.artwork_image.width }}"
-        height="{{ section.settings.artwork_image.height }}"
-      >
-    {%- else -%}
-      <img
-        class="hb-hero__artwork"
-        src="{{ 'hiring-banner-artwork.svg' | asset_url }}"
-        alt=""
-        role="presentation"
-        loading="eager"
-      >
-    {%- endif -%}
+    <img
+      src="{{ 'hiring-banner-artwork.svg' | asset_url }}"
+      class="hb-hero__artwork"
+      alt=""
+      loading="eager"
+    >
 
     <div class="hb-hero__content">
 
-      <h1 class="hb-hero__heading">{{ section.settings.heading }}</h1>
+        <h1 class="hb-hero__heading">
+            {{ section.settings.heading }}
+        </h1>
 
-      {%- if section.settings.description != blank -%}
-        <div class="hb-hero__description">{{ section.settings.description }}</div>
-      {%- endif -%}
+        <div class="hb-hero__description">
+            {{ section.settings.description }}
+        </div>
 
-      {%- if section.settings.button_text != blank -%}
         <a
-          {% if section.settings.button_link != blank %}
-            href="{{ section.settings.button_link }}"
-          {% else %}
-            href="#" role="link" aria-disabled="true"
-          {% endif %}
+          href="{{ section.settings.button_link }}"
           class="hb-btn hb-btn--black"
         >
-          <span class="hb-btn__fill" aria-hidden="true"></span>
-          <span class="hb-btn__label">{{ section.settings.button_text }}</span>
-          <span class="hb-btn__arrow" aria-hidden="true">
-            {{- 'icon-arrow.svg' | inline_asset_content -}}
-          </span>
+
+            <span class="hb-btn__fill"></span>
+
+            <span class="hb-btn__label">
+                {{ section.settings.button_text }}
+            </span>
+
+            <img
+              src="{{ 'icon-arrow.svg' | asset_url }}"
+              class="hb-btn__arrow"
+              alt=""
+            >
+
         </a>
-      {%- endif -%}
 
     </div>
-  </div>
+
+</div>
 
   <!-- 3. Info bar -->
   {%- if section.settings.footer_text != blank -%}
