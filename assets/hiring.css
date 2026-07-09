@@ -1,42 +1,53 @@
-/* =========================
+/* =====================================
    Hiring Banner
-========================= */
+===================================== */
 
-.hiring-banner {
-    width: 100%;
-    background: #fff;
+.hiring-banner{
+    width:100%;
+    background:#fff;
+    overflow:hidden;
 }
 
-/* -------------------------
+/* =====================================
    Header
-------------------------- */
+===================================== */
 
-.banner-header {
-    height: 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 0 32px;
-
-    border-bottom: 1px solid #e5e5e5;
+.banner-header{
+    height:48px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 48px;
+    border-bottom:1px solid #e5e5e5;
 }
 
 .banner-logo{
     font-size:18px;
     font-weight:700;
+    letter-spacing:.5px;
 }
 
 .banner-message{
     font-size:14px;
+    font-weight:400;
 }
 
 .banner-header-btn{
-    background:#F6E71D;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:210px;
+    height:48px;
+
+    background:#FFF544;
     color:#000;
-    padding:12px 24px;
+
     text-decoration:none;
+
+    font-size:14px;
     font-weight:600;
+
     transition:.3s;
 }
 
@@ -45,106 +56,158 @@
     color:#fff;
 }
 
-/* -------------------------
-   Top SVG
-------------------------- */
+/* =====================================
+   Top Artwork
+===================================== */
 
-.banner-top-svg img{
+.banner-top-svg{
+    width:100%;
+    line-height:0;
+}
+
+.banner-top-artwork{
     width:100%;
     display:block;
 }
 
-/* -------------------------
-   Bottom Layout
-------------------------- */
+/* =====================================
+   Bottom Hero
+===================================== */
 
 .banner-bottom{
-    display:grid;
-    grid-template-columns:45% 55%;
-    align-items:center;
-    max-width:1440px;
-    margin:auto;
+
+    position:relative;
+
+    width:100%;
+
+    line-height:0;
 }
 
-/* Left */
+.banner-artwork{
 
-.banner-left{
-    padding:72px 64px;
+    width:100%;
+
+    display:block;
 }
-.banner-title {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 72px;
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: -2px;
-    margin: 0 0 32px;
-    white-space: nowrap;
+
+/* =====================================
+   Content
+===================================== */
+
+.banner-content{
+
+    position:absolute;
+
+    left:70px;
+
+    top:65px;
+
+    width:500px;
+
+    z-index:5;
+}
+
+.banner-title{
+
+    margin:0;
+
+    font-size:72px;
+
+    font-weight:700;
+
+    line-height:1;
+
+    letter-spacing:-2px;
+
+    white-space:nowrap;
 }
 
 .banner-description{
+
+    margin-top:42px;
+
+    margin-bottom:44px;
+
     font-size:20px;
+
     line-height:1.6;
-    font-weight:400;
+
     color:#222;
-    max-width:520px;
-    margin-bottom:42px;
 }
-/* Button */
 
 .banner-btn{
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
 
+    gap:16px;
+
+    width:180px;
+
+    height:56px;
+
     background:#000;
+
     color:#fff;
 
     text-decoration:none;
 
-    padding:16px 34px;
+    font-size:14px;
 
-    font-size:15px;
     font-weight:600;
+
     letter-spacing:1px;
+
     text-transform:uppercase;
+
+    transition:.35s;
+}
+
+.banner-btn:hover{
+
+    background:#FFF544;
+
+    color:#000;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+}
+
+.btn-arrow{
+
+    font-size:20px;
 
     transition:.3s;
 }
 
-.banner-btn:hover{
-    background:#F5E62E;
-    color:#000;
-}
-.btn-arrow{
-    margin-left:14px;
-    font-size:18px;
-}
-/* Right */
+.banner-btn:hover .btn-arrow{
 
-.banner-right{
-
-    display:flex;
-
-    justify-content:flex-end;
+    transform:translateX(5px);
 }
 
-.banner-artwork{
-    width:100%;
-    height:auto;
-    display:block;
-}
-
-/* Footer */
+/* =====================================
+   Footer
+===================================== */
 
 .banner-footer{
 
-    text-align:center;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:36px;
+
+    border-top:1px solid #ececec;
 
     font-size:12px;
 
-    letter-spacing:2px;
+    letter-spacing:1.5px;
 
-    padding:15px 0;
-
-    border-top:1px solid #eee;
+    text-transform:uppercase;
 }

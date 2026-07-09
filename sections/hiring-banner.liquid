@@ -14,12 +14,11 @@
       {{ section.settings.header_text }}
     </div>
 
-    <a
-      href="{{ section.settings.header_button_link }}"
-      class="banner-header-btn"
-      aria-label="{{ section.settings.header_button }}"
-    >
-      {{ section.settings.header_button }}
+   <a href="{{ section.settings.button_link }}" class="banner-btn">
+    <span>SHOP NOW</span>
+    <span class="btn-arrow">
+        →
+    </span>
     </a>
 
   </div>
@@ -34,11 +33,16 @@
     >
   </div>
 
-  <!-- Bottom Section -->
-  <div class="banner-bottom page-width">
+ <div class="banner-bottom">
 
-    <!-- Left Content -->
-    <div class="banner-left">
+    <img
+      src="{{ 'banner-bottom.svg' | asset_url }}"
+      alt="Gift Guide Artwork"
+      class="banner-artwork"
+      loading="lazy"
+    >
+
+    <div class="banner-content">
 
       <h1 class="banner-title">
         {{ section.settings.heading }}
@@ -51,7 +55,6 @@
       <a
         href="{{ section.settings.button_link }}"
         class="banner-btn"
-        aria-label="{{ section.settings.button_text }}"
       >
         {{ section.settings.button_text }}
         <span class="btn-arrow">→</span>
@@ -59,19 +62,7 @@
 
     </div>
 
-    <!-- Right Illustration -->
-    <div class="banner-right">
-
-      <img
-        src="{{ 'banner-bottom.svg' | asset_url }}"
-        alt="Gift Guide Bottom Artwork"
-        class="banner-artwork"
-        loading="lazy"
-      >
-
-    </div>
-
-  </div>
+</div>
 
   <!-- Footer -->
   <div class="banner-footer">
