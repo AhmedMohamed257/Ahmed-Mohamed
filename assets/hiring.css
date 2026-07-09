@@ -159,53 +159,110 @@
   background: var(--hb-black);
 }
 
-/* ------------------------------------------------------------------ Hero */
+/* ===========================================
+   Hero
+=========================================== */
 
-.hb-hero {
-  position: relative;
-  overflow: hidden;
-  min-height: 620px;
-  background: var(--hb-white);
+.hb-hero{
+    display:flex;
+    flex-direction:column;
+    background:#fff;
 }
 
-.hb-hero__artwork {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+/* ---------- Top Artwork ---------- */
+
+.hb-hero__top{
+    width:100%;
+    overflow:hidden;
 }
 
-.hb-hero__content {
-  position: relative;
-  z-index: 1;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 40px;
-  height: 100%;
-  min-height: 620px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 64px;
-  max-width: 460px;
+.hb-hero__artwork{
+    width:100%;
+    display:block;
 }
 
-.hb-hero__heading {
-  margin: 0 0 16px;
-  font-size: 56px;
-  line-height: 1.05;
-  font-weight: 700;
+/* ---------- Bottom Layout ---------- */
+
+.hb-hero__bottom{
+
+    display:grid;
+
+    grid-template-columns:42% 58%;
+
+    align-items:center;
+
+    max-width:1440px;
+
+    width:100%;
+
+    margin:0 auto;
 }
 
-.hb-hero__description {
-  margin: 0 0 28px;
-  font-size: 15px;
-  line-height: 1.6;
+/* ---------- Left ---------- */
+
+.hb-hero__content{
+
+    padding:70px 70px 90px;
+
+    z-index:2;
 }
-.hb-hero__description p {
-  margin: 0;
+
+.hb-hero__heading{
+
+    margin:0;
+
+    font-size:72px;
+
+    font-weight:700;
+
+    line-height:0.95;
+
+    letter-spacing:-2px;
+}
+
+.hb-hero__description{
+
+    margin:36px 0;
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    max-width:430px;
+}
+
+.hb-hero__description p{
+
+    margin:0;
+}
+
+/* ---------- Right ---------- */
+
+.hb-hero__image{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:flex-end;
+}
+
+.hb-hero__artwork-bottom{
+
+    width:100%;
+
+    display:block;
+}
+
+/* ---------- Hero Button ---------- */
+
+.hb-btn--black{
+
+    width:190px;
+
+    height:56px;
+
+    font-size:14px;
 }
 
 /* --------------------------------------------------------------- Infobar */
