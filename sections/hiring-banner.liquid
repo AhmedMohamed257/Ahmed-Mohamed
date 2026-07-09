@@ -45,65 +45,68 @@
     </div>
   </div>
 
-  <!-- 2. Hero -->
+ <!-- Hero -->
+
 <div class="hb-hero">
 
-  <!-- Top artwork -->
-  <div class="hb-hero__top">
-    <img
-      src="{{ 'hiring-banner-artwork.svg' | asset_url }}"
-      class="hb-hero__artwork"
-      alt=""
-      loading="eager"
-    >
-  </div>
-
-  <!-- Bottom -->
-  <div class="hb-hero__bottom">
-
-    <!-- Left -->
-    <div class="hb-hero__content">
-
-      <h1 class="hb-hero__heading">
-        {{ section.settings.heading }}
-      </h1>
-
-      <div class="hb-hero__description">
-        {{ section.settings.description }}
-      </div>
-
-      <a
-        href="{{ section.settings.button_link }}"
-        class="hb-btn hb-btn--black"
-      >
-        <span class="hb-btn__fill"></span>
-
-        <span class="hb-btn__label">
-          {{ section.settings.button_text }}
-        </span>
-
+    <!-- Top SVG -->
+    <div class="hb-top-image">
         <img
-          src="{{ 'icon-arrow.svg' | asset_url }}"
-          class="hb-btn__arrow"
-          alt=""
-        >
-      </a>
-
+            src="{{ 'hiring-banner-top.svg' | asset_url }}"
+            alt=""
+            loading="eager">
     </div>
 
-    <!-- Right -->
-    <div class="hb-hero__image">
+    <!-- Bottom -->
 
-      <img
-        src="{{ 'hiring-banner-artwork.svg' | asset_url }}"
-        class="hb-hero__artwork-bottom"
-        alt=""
-        loading="eager"
-      >
+    <div class="hb-bottom">
+
+        <!-- Left -->
+
+        <div class="hb-left">
+
+            <h1 class="hb-hero__heading">
+                {{ section.settings.heading }}
+            </h1>
+
+            <div class="hb-hero__description">
+                {{ section.settings.description }}
+            </div>
+
+            <a
+                href="{{ section.settings.button_link }}"
+                class="hb-btn hb-btn--black">
+
+                <span class="hb-btn__fill"></span>
+
+                <span class="hb-btn__label">
+                    {{ section.settings.button_text }}
+                </span>
+
+                <span class="hb-btn__arrow">
+
+                    <img
+                        src="{{ 'icon-arrow.svg' | asset_url }}"
+                        alt="">
+
+                </span>
+
+            </a>
+
+        </div>
+
+        <!-- Right -->
+
+        <div class="hb-right">
+
+            <img
+                src="{{ 'hiring-banner-bottom.svg' | asset_url }}"
+                class="hb-bottom-svg"
+                alt="">
+
+        </div>
 
     </div>
-
-  </div>
 
 </div>
 
