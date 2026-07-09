@@ -11,7 +11,12 @@
   "sections": {
     "banner": {
       "type": "hiring-banner",
-      "settings": {}
+      "settings": {
+        "heading": "The Gift Guide",
+        "description": "Discover Joy: Your Ultimate Holiday Gift Destination.\nExplore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
+        "button_text": "SHOP NOW",
+        "button_link": ""
+      }
     },
     "grid": {
       "type": "hiring-grid",
