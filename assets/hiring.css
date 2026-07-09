@@ -1,6 +1,6 @@
-/* =====================================
+/* ===========================================
    Hiring Banner
-===================================== */
+=========================================== */
 
 .hiring-banner{
     width:100%;
@@ -8,71 +8,100 @@
     overflow:hidden;
 }
 
-/* =====================================
+/* ===========================================
    Header
-===================================== */
+=========================================== */
 
 .banner-header{
+
     height:48px;
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     padding:0 48px;
-    border-bottom:1px solid #e5e5e5;
+
+    border-bottom:1px solid #e8e8e8;
+
+    background:#fff;
 }
 
 .banner-logo{
-    font-size:18px;
+
+    font-size:20px;
+
     font-weight:700;
+
     letter-spacing:.5px;
+
+    color:#111;
 }
 
 .banner-message{
+
     font-size:14px;
-    font-weight:400;
+
+    color:#333;
 }
 
 .banner-header-btn{
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
+    gap:12px;
+
     width:210px;
+
     height:48px;
 
     background:#FFF544;
+
     color:#000;
 
     text-decoration:none;
 
     font-size:14px;
+
     font-weight:600;
 
-    transition:.3s;
+    transition:.35s;
 }
 
 .banner-header-btn:hover{
+
     background:#000;
+
     color:#fff;
 }
 
-/* =====================================
-   Top Artwork
-===================================== */
+/* ===========================================
+   Top SVG
+=========================================== */
 
 .banner-top-svg{
+
     width:100%;
+
     line-height:0;
 }
 
 .banner-top-artwork{
+
     width:100%;
+
     display:block;
 }
 
-/* =====================================
+/* ===========================================
    Bottom Hero
-===================================== */
+=========================================== */
 
 .banner-bottom{
 
@@ -90,19 +119,19 @@
     display:block;
 }
 
-/* =====================================
+/* ===========================================
    Content
-===================================== */
+=========================================== */
 
 .banner-content{
 
     position:absolute;
 
+    top:70px;
+
     left:70px;
 
-    top:65px;
-
-    width:500px;
+    width:470px;
 
     z-index:5;
 }
@@ -119,12 +148,14 @@
 
     letter-spacing:-2px;
 
+    color:#000;
+
     white-space:nowrap;
 }
 
 .banner-description{
 
-    margin-top:42px;
+    margin-top:40px;
 
     margin-bottom:44px;
 
@@ -135,6 +166,11 @@
     color:#222;
 }
 
+.banner-description p{
+
+    margin:0;
+}
+
 .banner-btn{
 
     display:inline-flex;
@@ -143,7 +179,7 @@
 
     justify-content:center;
 
-    gap:16px;
+    gap:18px;
 
     width:180px;
 
@@ -155,15 +191,15 @@
 
     text-decoration:none;
 
+    text-transform:uppercase;
+
     font-size:14px;
 
     font-weight:600;
 
-    letter-spacing:1px;
-
-    text-transform:uppercase;
-
     transition:.35s;
+
+    box-shadow:0 6px 14px rgba(0,0,0,.15);
 }
 
 .banner-btn:hover{
@@ -173,27 +209,27 @@
     color:#000;
 
     transform:translateY(-2px);
-
-    box-shadow:0 8px 18px rgba(0,0,0,.18);
 }
 
 .btn-arrow{
 
     font-size:20px;
 
-    transition:.3s;
+    transition:.35s;
 }
 
 .banner-btn:hover .btn-arrow{
 
-    transform:translateX(5px);
+    transform:translateX(6px);
 }
 
-/* =====================================
+/* ===========================================
    Footer
-===================================== */
+=========================================== */
 
 .banner-footer{
+
+    height:36px;
 
     display:flex;
 
@@ -201,13 +237,13 @@
 
     align-items:center;
 
-    height:36px;
-
     border-top:1px solid #ececec;
 
     font-size:12px;
 
-    letter-spacing:1.5px;
+    letter-spacing:1.8px;
 
     text-transform:uppercase;
+
+    color:#111;
 }
