@@ -89,18 +89,34 @@
 }
 
 /* Hero button: black base, yellow sweeps in left-to-right on hover */
-.hb-btn--black {
-  background: var(--hb-black);
-  color: var(--hb-white);
+.hb-btn--black{
+
+    width:220px;
+    height:50px;
+
+    background:#000;
+    color:#FFF;
+
 }
-.hb-btn--black .hb-btn__fill {
-  background: var(--hb-yellow);
+
+.hb-btn--black .hb-btn__fill{
+    background:#FFF544;
 }
-.hb-btn--black:hover .hb-btn__label,
-.hb-btn--black:hover .hb-btn__arrow,
-.hb-btn--black:focus-visible .hb-btn__label,
-.hb-btn--black:focus-visible .hb-btn__arrow {
-  color: var(--hb-black);
+
+/* Arrow starts WHITE */
+
+.hb-btn--black .hb-btn__arrow img{
+    filter:brightness(0) invert(1);
+}
+
+/* Hover */
+
+.hb-btn--black:hover .hb-btn__label{
+    color:#000;
+}
+
+.hb-btn--black:hover .hb-btn__arrow img{
+    filter:none;
 }
 
 @media (prefers-reduced-motion: reduce) {
