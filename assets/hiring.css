@@ -24,31 +24,38 @@
 
 /* -------------------------------------------------- Buttons + sweep hover */
 
-.hb-btn--yellow{
-    width:210px;
-    height:48px;
-
-    background:#FFF544;
-    color:#000;
+.hb-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: var(--hb-btn-height);
+  padding: 0 22px;
+  overflow: hidden;           /* clips the sweep fill */
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
 }
 
-.hb-btn--yellow .hb-btn__fill{
-    background:#000;
+/* the label + arrow sit above the sweeping fill layer */
+.hb-btn__label,
+.hb-btn__arrow {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--hb-transition);
 }
 
-/* Arrow starts BLACK */
-.hb-btn--yellow .hb-btn__arrow img{
-    filter:none;
-}
-
-/* Hover */
-
-.hb-btn--yellow:hover .hb-btn__label{
-    color:#FFF544;
-}
-
-.hb-btn--yellow:hover .hb-btn__arrow img{
-    filter:brightness(0) invert(1);
+.hb-btn__arrow svg {
+  width: 15px;
+  height: 10px;
 }
 
 /* the fill layer: starts collapsed at the left edge, expands on hover */
