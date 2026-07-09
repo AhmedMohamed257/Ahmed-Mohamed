@@ -1,249 +1,306 @@
-/* ===========================================
-   Hiring Banner
-=========================================== */
+/* ==========================================================================
+   Hiring Test — shared stylesheet
+   Sections: Banner (below), Grid (appended once hiring-grid.liquid is in)
+   ========================================================================== */
 
-.hiring-banner{
-    width:100%;
-    background:#fff;
-    overflow:hidden;
+:root {
+  --hb-yellow: #FFF544;
+  --hb-black: #000000;
+  --hb-white: #FFFFFF;
+  --hb-bar-bg: #F5F5F5;
+  --hb-text: #111111;
+  --hb-btn-height: 48px;
+  --hb-transition: 0.35s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-/* ===========================================
-   Header
-=========================================== */
-
-.banner-header{
-
-    height:48px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:0 48px;
-
-    border-bottom:1px solid #e8e8e8;
-
-    background:#fff;
+.hiring-banner * {
+  box-sizing: border-box;
 }
 
-.banner-logo{
-
-    font-size:20px;
-
-    font-weight:700;
-
-    letter-spacing:.5px;
-
-    color:#111;
+.hiring-banner {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  color: var(--hb-text);
 }
 
-.banner-message{
+/* -------------------------------------------------- Buttons + sweep hover */
 
-    font-size:14px;
-
-    color:#333;
+.hb-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: var(--hb-btn-height);
+  padding: 0 22px;
+  overflow: hidden;           /* clips the sweep fill */
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
 }
 
-.banner-header-btn{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:12px;
-
-    width:210px;
-
-    height:48px;
-
-    background:#FFF544;
-
-    color:#000;
-
-    text-decoration:none;
-
-    font-size:14px;
-
-    font-weight:600;
-
-    transition:.35s;
+/* the label + arrow sit above the sweeping fill layer */
+.hb-btn__label,
+.hb-btn__arrow {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--hb-transition);
 }
 
-.banner-header-btn:hover{
-
-    background:#000;
-
-    color:#fff;
+.hb-btn__arrow svg {
+  width: 15px;
+  height: 10px;
 }
 
-/* ===========================================
-   Top SVG
-=========================================== */
-
-.banner-top-svg{
-
-    width:100%;
-
-    line-height:0;
+/* the fill layer: starts collapsed at the left edge, expands on hover */
+.hb-btn__fill {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--hb-transition);
 }
 
-.banner-top-artwork{
-
-    width:100%;
-
-    display:block;
+.hb-btn:hover .hb-btn__fill,
+.hb-btn:focus-visible .hb-btn__fill {
+  transform: scaleX(1);
 }
 
-/* ===========================================
-   Bottom Hero
-=========================================== */
-
-.banner-bottom{
-
-    position:relative;
-
-    width:100%;
-
-    line-height:0;
+/* Top bar button: yellow base, black sweeps in left-to-right on hover */
+.hb-btn--yellow {
+  background: var(--hb-yellow);
+  color: var(--hb-black);
+}
+.hb-btn--yellow .hb-btn__fill {
+  background: var(--hb-black);
+}
+.hb-btn--yellow:hover .hb-btn__label,
+.hb-btn--yellow:hover .hb-btn__arrow,
+.hb-btn--yellow:focus-visible .hb-btn__label,
+.hb-btn--yellow:focus-visible .hb-btn__arrow {
+  color: var(--hb-yellow);
 }
 
-.banner-artwork{
-
-    width:100%;
-
-    display:block;
+/* Hero button: black base, yellow sweeps in left-to-right on hover */
+.hb-btn--black {
+  background: var(--hb-black);
+  color: var(--hb-white);
+}
+.hb-btn--black .hb-btn__fill {
+  background: var(--hb-yellow);
+}
+.hb-btn--black:hover .hb-btn__label,
+.hb-btn--black:hover .hb-btn__arrow,
+.hb-btn--black:focus-visible .hb-btn__label,
+.hb-btn--black:focus-visible .hb-btn__arrow {
+  color: var(--hb-black);
 }
 
-/* ===========================================
-   Content
-=========================================== */
-
-.banner-content{
-
-    position:absolute;
-
-    top:70px;
-
-    left:70px;
-
-    width:470px;
-
-    z-index:5;
+@media (prefers-reduced-motion: reduce) {
+  .hb-btn__fill,
+  .hb-btn__label,
+  .hb-btn__arrow {
+    transition: none;
+  }
 }
 
-.banner-title{
+/* -------------------------------------------------------------- Top bar */
 
-    margin:0;
-
-    font-size:72px;
-
-    font-weight:700;
-
-    line-height:1;
-
-    letter-spacing:-2px;
-
-    color:#000;
-
-    white-space:nowrap;
+.hb-topbar {
+  background: var(--hb-bar-bg);
 }
 
-.banner-description{
-
-    margin-top:40px;
-
-    margin-bottom:44px;
-
-    font-size:20px;
-
-    line-height:1.6;
-
-    color:#222;
+.hb-topbar__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 18px 40px;
 }
 
-.banner-description p{
-
-    margin:0;
+.hb-logo {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
-.banner-btn{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:18px;
-
-    width:180px;
-
-    height:56px;
-
-    background:#000;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    text-transform:uppercase;
-
-    font-size:14px;
-
-    font-weight:600;
-
-    transition:.35s;
-
-    box-shadow:0 6px 14px rgba(0,0,0,.15);
+.hb-topbar__message {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
 }
 
-.banner-btn:hover{
-
-    background:#FFF544;
-
-    color:#000;
-
-    transform:translateY(-2px);
+.hb-menu-toggle {
+  display: none; /* desktop: hidden, shown on mobile */
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.hb-menu-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--hb-black);
 }
 
-.btn-arrow{
+/* ------------------------------------------------------------------ Hero */
 
-    font-size:20px;
-
-    transition:.35s;
+.hb-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 620px;
+  background: var(--hb-white);
 }
 
-.banner-btn:hover .btn-arrow{
-
-    transform:translateX(6px);
+.hb-hero__artwork {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
-/* ===========================================
-   Footer
-=========================================== */
+.hb-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 100%;
+  min-height: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 64px;
+  max-width: 460px;
+}
 
-.banner-footer{
+.hb-hero__heading {
+  margin: 0 0 16px;
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 700;
+}
 
-    height:36px;
+.hb-hero__description {
+  margin: 0 0 28px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.hb-hero__description p {
+  margin: 0;
+}
 
-    display:flex;
+/* --------------------------------------------------------------- Infobar */
 
-    justify-content:center;
+.hb-infobar {
+  background: var(--hb-bar-bg);
+  text-align: center;
+  padding: 14px 20px;
+}
+.hb-infobar p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
 
-    align-items:center;
+/* ---------------------------------------------------------- Mobile menu */
 
-    border-top:1px solid #ececec;
+.hb-mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--hb-white);
+  transform: translateX(-100%);
+  transition: transform var(--hb-transition);
+  padding: 24px;
+}
+.hb-mobile-menu.is-open {
+  transform: translateX(0);
+}
+.hb-mobile-menu__close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+.hb-mobile-menu__list {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 0;
+}
+.hb-mobile-menu__list li + li {
+  margin-top: 20px;
+}
+.hb-mobile-menu__list a {
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--hb-text);
+}
 
-    font-size:12px;
+/* ================================================================
+   Mobile (<= 749px)
+   ================================================================ */
+@media screen and (max-width: 749px) {
 
-    letter-spacing:1.8px;
+  .hb-topbar__inner {
+    grid-template-columns: 24px 1fr 24px; /* hamburger | centered logo | spacer for symmetry */
+    padding: 14px 20px;
+  }
+  .hb-menu-toggle {
+    display: flex;
+  }
+  .hb-logo {
+    font-size: 15px;
+    text-align: center;
+  }
+  /* message + choose-gift button move into the mobile menu area on small
+     screens per the Figma mobile frame — hide from the bar itself */
+  .hb-topbar__message,
+  .hb-topbar .hb-btn--yellow {
+    display: none;
+  }
 
-    text-transform:uppercase;
+  .hb-hero {
+    min-height: 520px;
+  }
+  .hb-hero__content {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 0 24px 40px;
+  }
+  .hb-hero__heading {
+    font-size: 34px;
+  }
+  .hb-hero__description {
+    font-size: 14px;
+  }
+  .hb-hero__description p {
+    max-width: 320px;
+    margin: 0 auto;
+  }
 
-    color:#111;
+  .hb-infobar p {
+    font-size: 10px;
+  }
 }
