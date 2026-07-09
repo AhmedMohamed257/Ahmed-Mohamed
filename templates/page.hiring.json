@@ -12,10 +12,15 @@
     "banner": {
       "type": "hiring-banner",
       "settings": {
+        "logo_text": "TISSO VISION",
+        "header_text": "Find the ideal gift for your loved ones.",
+        "header_button": "CHOOSE GIFT",
+        "header_button_link": "",
         "heading": "The Gift Guide",
-        "description": "Discover Joy: Your Ultimate Holiday Gift Destination.\nExplore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
+        "description": "<p>Discover Joy: Your Ultimate Holiday Gift Destination.<br/>Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>",
         "button_text": "SHOP NOW",
-        "button_link": ""
+        "button_link": "",
+        "footer_text": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XS TO 6XL"
       }
     },
     "grid": {
