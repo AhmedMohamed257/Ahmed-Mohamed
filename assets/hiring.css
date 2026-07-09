@@ -51,6 +51,21 @@
     filter:brightness(0) invert(1);
 }
 
+/* the fill layer: starts collapsed at the left edge, expands on hover */
+.hb-btn__fill {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--hb-transition);
+}
+
+.hb-btn:hover .hb-btn__fill,
+.hb-btn:focus-visible .hb-btn__fill {
+  transform: scaleX(1);
+}
+
 /* Top bar button: yellow base, black sweeps in left-to-right on hover */
 .hb-btn--yellow {
   background: var(--hb-yellow);
