@@ -59,67 +59,66 @@
 ------------------------- */
 
 .banner-bottom{
-
     display:grid;
-
-    grid-template-columns:38% 62%;
-
+    grid-template-columns:45% 55%;
     align-items:center;
-
     max-width:1440px;
-
     margin:auto;
 }
 
 /* Left */
 
 .banner-left{
-
-    padding:70px;
+    padding:72px 64px;
 }
-
-.banner-title{
-
-    font-size:64px;
-
-    line-height:1.1;
-
-    margin-bottom:25px;
+.banner-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin: 0 0 32px;
+    white-space: nowrap;
 }
 
 .banner-description{
-
-    font-size:18px;
-
-    line-height:1.7;
-
-    margin-bottom:40px;
+    font-size:20px;
+    line-height:1.6;
+    font-weight:400;
+    color:#222;
+    max-width:520px;
+    margin-bottom:42px;
 }
-
 /* Button */
 
 .banner-btn{
-
-    display:inline-block;
-
-    padding:16px 34px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 
     background:#000;
-
     color:#fff;
 
     text-decoration:none;
+
+    padding:16px 34px;
+
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:1px;
+    text-transform:uppercase;
 
     transition:.3s;
 }
 
 .banner-btn:hover{
-
-    background:#F6E71D;
-
+    background:#F5E62E;
     color:#000;
 }
-
+.btn-arrow{
+    margin-left:14px;
+    font-size:18px;
+}
 /* Right */
 
 .banner-right{
@@ -130,9 +129,8 @@
 }
 
 .banner-artwork{
-
     width:100%;
-
+    height:auto;
     display:block;
 }
 
