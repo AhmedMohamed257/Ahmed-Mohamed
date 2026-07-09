@@ -1,5 +1,8 @@
 {{ 'hiring.css' | asset_url | stylesheet_tag }}
-{{ 'hiring.js' | asset_url | script_tag }}
+<script
+  src="{{ 'hiring.js' | asset_url }}"
+  defer>
+</script>
 
 
 
@@ -52,9 +55,11 @@
     <!-- Top SVG -->
     <div class="hb-top-image">
         <img
-            src="{{ 'hiring-banner-top.svg' | asset_url }}"
-            alt=""
-            loading="eager">
+          src="{{ 'hiring-banner-top.svg' | asset_url }}"
+          alt=""
+          width="1440"
+          height="390"
+          loading="eager">
     </div>
 
     <!-- Bottom -->
@@ -85,9 +90,12 @@
 
                 <span class="hb-btn__arrow">
 
-                    <img
-                        src="{{ 'icon-arrow.svg' | asset_url }}"
-                        alt="">
+                  <img
+                    src="{{ 'hiring-banner-top.svg' | asset_url }}"
+                    alt=""
+                    width="1440"
+                    height="390"
+                    loading="eager">
 
                 </span>
 
@@ -99,11 +107,12 @@
 
         <div class="hb-right">
 
-            <img
-                src="{{ 'hiring-banner-bottom.svg' | asset_url }}"
-                class="hb-bottom-svg"
-                alt="">
-
+          <img
+            src="{{ 'hiring-banner-bottom.svg' | asset_url }}"
+            alt=""
+            width="890"
+            height="402"
+            loading="lazy">
         </div>
 
     </div>
