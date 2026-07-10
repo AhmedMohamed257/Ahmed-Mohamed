@@ -9,7 +9,7 @@
     <div class="hg-products">
 
       {% for block in section.blocks %}
-
+      {% assign product = block.settings.product %}
       <div class="hg-card">
 
         <div class="hg-image">
@@ -17,7 +17,7 @@
           {% if block.settings.image %}
             <img
               src="{{ block.settings.image | image_url: width: 700 }}"
-              alt="{{ block.settings.title }}"
+              alt="{{ product.title }}"
               loading="lazy"
               width="{{ block.settings.image.width }}"
               height="{{ block.settings.image.height }}">
@@ -56,12 +56,12 @@
 
             <div class="hg-popup-image">
 
-              {% if block.settings.popup_image %}
+              {% if product.featured_image %}
                 <img
-                  src="{{ block.settings.popup_image | image_url: width:500 }}"
-                  alt="{{ block.settings.title }}"
-                  width="{{ block.settings.popup_image.width }}"
-                  height="{{ block.settings.popup_image.height }}">
+                src="{{ product.featured_image | image_url: width:500 }}"
+                width="250"
+                height="300"
+                alt="{{ product.title }}">
               {% endif %}
 
             </div>
@@ -71,11 +71,11 @@
               <h3>{{ block.settings.title }}</h3>
 
               <p class="hg-popup-price">
-                {{ block.settings.price }}
+                {{ product.price | money }}
               </p>
 
               <div class="hg-popup-description">
-                {{ block.settings.description }}
+                {{ product.description }}
               </div>
 
               <label>Color</label>
