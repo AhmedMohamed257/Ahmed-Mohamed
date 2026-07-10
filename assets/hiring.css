@@ -204,21 +204,6 @@
 
 }
 /* ---------- Bottom Layout ---------- */
-
-.hb-hero__bottom{
-
-    display:grid;
-
-    grid-template-columns:42% 58%;
-
-    align-items:center;
-
-    max-width:1440px;
-
-    width:100%;
-
-    margin:0 auto;
-}
 .hb-bottom{
 
     display:grid;
