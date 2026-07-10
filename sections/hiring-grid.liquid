@@ -9,15 +9,14 @@
     <div class="hg-products">
 
       {% for block in section.blocks %}
-      {% assign product = block.settings.product %}
-      <div class="hg-card">
+      <div class="hg-card" {{ block.shopify_attributes }}>
 
         <div class="hg-image">
 
           {% if block.settings.image %}
             <img
               src="{{ block.settings.image | image_url: width: 700 }}"
-              alt="{{ product.title }}"
+              alt="{{ block.settings.title }}"
               loading="lazy"
               width="{{ block.settings.image.width }}"
               height="{{ block.settings.image.height }}">
@@ -27,7 +26,8 @@
               class="hg-plus"
               type="button"
               data-popup="popup-{{ block.id }}"
-          >  
+              aria-label="Quick view {{ block.settings.title }}"
+          >
 
               <img
                   src="{{ 'plus-icon.svg' | asset_url }}"
@@ -50,18 +50,18 @@
 
         <div class="hg-popup-box">
 
-          <button class="hg-close">&times;</button>
+          <button class="hg-close" type="button" aria-label="Close">&times;</button>
 
           <div class="hg-popup-grid">
 
             <div class="hg-popup-image">
 
-              {% if product.featured_image %}
+              {% if block.settings.popup_image %}
                 <img
-                src="{{ product.featured_image | image_url: width:500 }}"
+                src="{{ block.settings.popup_image | image_url: width: 500 }}"
                 width="250"
                 height="300"
-                alt="{{ product.title }}">
+                alt="{{ block.settings.title }}">
               {% endif %}
 
             </div>
@@ -71,20 +71,20 @@
               <h3>{{ block.settings.title }}</h3>
 
               <p class="hg-popup-price">
-                {{ product.price | money }}
+                {{ block.settings.price }}
               </p>
 
               <div class="hg-popup-description">
-                {{ product.description }}
+                {{ block.settings.description }}
               </div>
 
               <label>Color</label>
 
               <div class="hg-colors">
 
-                <button>{{ block.settings.color1 }}</button>
+                <button type="button" data-color="{{ block.settings.color1 | escape }}">{{ block.settings.color1 }}</button>
 
-                <button>{{ block.settings.color2 }}</button>
+                <button type="button" data-color="{{ block.settings.color2 | escape }}">{{ block.settings.color2 }}</button>
 
               </div>
 
@@ -92,15 +92,15 @@
 
               <select>
 
-                <option>{{ block.settings.size_placeholder }}</option>
+                <option value="">{{ block.settings.size_placeholder }}</option>
 
-                <option>S</option>
+                <option value="S">S</option>
 
-                <option>M</option>
+                <option value="M">M</option>
 
-                <option>L</option>
+                <option value="L">L</option>
 
-                <option>XL</option>
+                <option value="XL">XL</option>
 
               </select>
 
@@ -133,6 +133,32 @@
   </div>
 
 </section>
+
+<script>
+  document.addEventListener('click', function (e) {
+    const trigger = e.target.closest('[data-popup]');
+    if (trigger) {
+      const popup = document.getElementById(trigger.dataset.popup);
+      if (popup) popup.classList.add('is-open');
+      return;
+    }
+
+    const closeBtn = e.target.closest('.hg-close');
+    const overlay = e.target.closest('.hg-popup-overlay');
+    if (closeBtn || overlay) {
+      const popup = e.target.closest('.hg-popup');
+      if (popup) popup.classList.remove('is-open');
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.hg-popup.is-open').forEach(function (popup) {
+        popup.classList.remove('is-open');
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {
