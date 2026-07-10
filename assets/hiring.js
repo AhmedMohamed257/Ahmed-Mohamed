@@ -1,156 +1,20 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-    const modal = document.getElementById("hgModal");
+    document.querySelectorAll(".hg-plus").forEach(button=>{
 
-    const modalContent = modal.querySelector(".hg-modal-content");
+        button.addEventListener("click",function(e){
 
-    const close = modal.querySelector(".hg-close");
+            e.preventDefault();
 
+            e.stopPropagation();
 
+            const popup=document.getElementById(
 
-    document.querySelectorAll(".hg-plus").forEach(button => {
+                this.dataset.popup
 
-        button.addEventListener("click", async () => {
+            );
 
-            const handle = button.dataset.product;
-
-            const response = await fetch(`/products/${handle}.js`);
-
-            const product = await response.json();
-
-            let colors = "";
-
-            let sizes = "";
-
-
-
-            product.options.forEach(option=>{
-
-                if(option.name.toLowerCase()=="color"){
-
-                    option.values.forEach(value=>{
-
-                        colors +=
-
-                        `<button class="color-btn">${value}</button>`;
-
-                    });
-
-                }
-
-
-
-                if(option.name.toLowerCase()=="size"){
-
-                    option.values.forEach(value=>{
-
-                        sizes +=
-
-                        `<option>${value}</option>`;
-
-                    });
-
-                }
-
-            });
-
-
-
-            modalContent.innerHTML=`
-
-                <div class="hg-product-top">
-
-                    <img src="${product.images[0]}" />
-
-                    <div>
-
-                        <h3 class="hg-title">${product.title}</h3>
-
-                        <div class="hg-price">
-
-                        ${(product.price/100).toFixed(2)}€
-
-                        </div>
-
-                        <p class="hg-description">
-
-                        ${product.description}
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div>
-
-                    <label>Color</label>
-
-                    <div class="colors">
-
-                        ${colors}
-
-                    </div>
-
-                </div>
-
-                <div>
-
-                    <label>Size</label>
-
-                    <select>
-
-                        ${sizes}
-
-                    </select>
-
-                </div>
-
-                <button
-
-                    class="hg-add"
-
-                    data-id="${product.variants[0].id}"
-
-                >
-
-                    ADD TO CART
-
-                </button>
-
-            `;
-
-            modal.classList.add("active");
-
-
-
-            document.querySelector(".hg-add").onclick = async function(){
-
-                await fetch('/cart/add.js',{
-
-                    method:'POST',
-
-                    headers:{
-
-                        'Content-Type':'application/json'
-
-                    },
-
-                    body:JSON.stringify({
-
-                        id:this.dataset.id,
-
-                        quantity:1
-
-                    })
-
-                });
-
-
-
-                window.location='/cart';
-
-            }
+            popup.classList.add("active");
 
         });
 
@@ -158,23 +22,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    close.onclick=()=>{
 
-        modal.classList.remove("active");
+    document.querySelectorAll(".hg-close").forEach(close=>{
 
-    };
+        close.addEventListener("click",function(){
+
+            this.closest(".hg-popup").classList.remove("active");
+
+        });
+
+    });
 
 
 
-    modal.onclick=e=>{
 
-        if(e.target===modal){
+    document.querySelectorAll(".hg-popup-overlay").forEach(overlay=>{
 
-            modal.classList.remove("active");
+        overlay.addEventListener("click",function(){
 
-        }
+            this.parentElement.classList.remove("active");
 
-    };
+        });
+
+    });
 
 });
 /**
