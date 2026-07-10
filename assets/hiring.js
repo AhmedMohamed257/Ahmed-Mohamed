@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded",()=>{
             );
 
             popup.classList.add("active");
-
+            popup.classList.add('is-open');
         });
 
     });
