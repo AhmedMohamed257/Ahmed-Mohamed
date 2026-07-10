@@ -275,22 +275,6 @@
     align-items:flex-end;
 
 }
-
-.hb-hero__image{
-
-    display:flex;
-
-    justify-content:flex-end;
-
-    align-items:flex-end;
-}
-
-.hb-hero__artwork-bottom{
-
-    width:100%;
-
-    display:block;
-}
 .hb-bottom-svg{
 
     width:890px;

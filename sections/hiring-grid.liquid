@@ -8,49 +8,117 @@
 
     <div class="hg-products">
 
-      {% if section.settings.collection != blank %}
+      {% for block in section.blocks %}
 
-        {% for product in section.settings.collection.products limit: 6 %}
+      <div class="hg-card">
 
-          <div class="hg-card">
+        <div class="hg-image">
 
-            <a href="{{ product.url }}" class="hg-image">
+          {% if block.settings.image %}
+            <img
+              src="{{ block.settings.image | image_url: width: 700 }}"
+              alt="{{ block.settings.title }}"
+              loading="lazy"
+              width="{{ block.settings.image.width }}"
+              height="{{ block.settings.image.height }}">
+          {% endif %}
 
-              {% if product.featured_image %}
+          <button
+            class="hg-plus"
+            data-popup="popup-{{ block.id }}"
+            aria-label="Open product">
+            +
+          </button>
 
+        </div>
+
+      </div>
+
+      <!-- Popup -->
+
+      <div class="hg-popup" id="popup-{{ block.id }}">
+
+        <div class="hg-popup-overlay"></div>
+
+        <div class="hg-popup-box">
+
+          <button class="hg-close">&times;</button>
+
+          <div class="hg-popup-grid">
+
+            <div class="hg-popup-image">
+
+              {% if block.settings.popup_image %}
                 <img
-                  src="{{ product.featured_image | image_url: width: 600 }}"
-                  alt="{{ product.title }}"
-                  loading="lazy"
-                  width="450"
-                  height="560"
-                >
-
+                  src="{{ block.settings.popup_image | image_url: width:500 }}"
+                  alt="{{ block.settings.title }}"
+                  width="{{ block.settings.popup_image.width }}"
+                  height="{{ block.settings.popup_image.height }}">
               {% endif %}
 
-            </a>
+            </div>
 
-            <div class="hg-info">
+            <div class="hg-popup-content">
 
-              <h3 class="hg-title">
-                {{ product.title }}
-              </h3>
+              <h3>{{ block.settings.title }}</h3>
 
-              <p class="hg-price">
-                {{ product.price | money }}
+              <p class="hg-popup-price">
+                {{ block.settings.price }}
               </p>
+
+              <div class="hg-popup-description">
+                {{ block.settings.description }}
+              </div>
+
+              <label>Color</label>
+
+              <div class="hg-colors">
+
+                <button>{{ block.settings.color1 }}</button>
+
+                <button>{{ block.settings.color2 }}</button>
+
+              </div>
+
+              <label>Size</label>
+
+              <select>
+
+                <option>{{ block.settings.size_placeholder }}</option>
+
+                <option>S</option>
+
+                <option>M</option>
+
+                <option>L</option>
+
+                <option>XL</option>
+
+              </select>
+
+              <a href="{{ block.settings.button_link }}" class="hb-btn hb-btn--black">
+
+                <span class="hb-btn__fill"></span>
+
+                <span class="hb-btn__label">
+                  {{ block.settings.button_text }}
+                </span>
+
+                <span class="hb-btn__arrow">
+                  <img src="{{ 'icon-arrow.svg' | asset_url }}" alt="">
+                </span>
+
+              </a>
 
             </div>
 
           </div>
 
-        {% endfor %}
+        </div>
 
-      {% else %}
+      </div>
 
-        <p>Please select a collection.</p>
-
-      {% endif %}
+      {% endfor %}
 
     </div>
 
@@ -60,31 +128,110 @@
 
 {% schema %}
 {
-  "name": "Hiring Grid",
-  "tag": "section",
-  "class": "section-hiring-grid",
+  "name":"Hiring Grid",
+  "tag":"section",
+  "class":"section-hiring-grid",
 
-  "settings": [
-
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Tisso vision in the wild"
-    },
+  "settings":[
 
     {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
+      "type":"text",
+      "id":"heading",
+      "label":"Heading",
+      "default":"Tisso vision in the wild"
     }
 
   ],
 
-  "presets": [
+  "blocks":[
+
     {
-      "name": "Hiring Grid"
+      "type":"product",
+
+      "name":"Product",
+
+      "settings":[
+
+        {
+          "type":"image_picker",
+          "id":"image",
+          "label":"Grid Image"
+        },
+
+        {
+          "type":"image_picker",
+          "id":"popup_image",
+          "label":"Popup Image"
+        },
+
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Title",
+          "default":"Orange Wide Leg"
+        },
+
+        {
+          "type":"text",
+          "id":"price",
+          "label":"Price",
+          "default":"980,00€"
+        },
+
+        {
+          "type":"richtext",
+          "id":"description",
+          "label":"Description",
+          "default":"<p>This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.</p>"
+        },
+
+        {
+          "type":"text",
+          "id":"color1",
+          "label":"First Color",
+          "default":"White"
+        },
+
+        {
+          "type":"text",
+          "id":"color2",
+          "label":"Second Color",
+          "default":"Black"
+        },
+
+        {
+          "type":"text",
+          "id":"size_placeholder",
+          "label":"Size Placeholder",
+          "default":"Choose your size"
+        },
+
+        {
+          "type":"text",
+          "id":"button_text",
+          "label":"Button",
+          "default":"ADD TO CART"
+        },
+
+        {
+          "type":"url",
+          "id":"button_link",
+          "label":"Button Link"
+        }
+
+      ]
+
+    }
+
+  ],
+
+  "max_blocks":6,
+
+  "presets":[
+    {
+      "name":"Hiring Grid"
     }
   ]
+
 }
 {% endschema %}

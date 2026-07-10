@@ -1,3 +1,44 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+    const plusButtons = document.querySelectorAll(".hg-plus");
+
+    plusButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const popup = document.getElementById(
+                "popup-" + button.dataset.popup
+            );
+
+            popup.classList.add("active");
+
+        });
+
+    });
+
+    document.querySelectorAll(".hg-close").forEach(close => {
+
+        close.addEventListener("click", () => {
+
+            close.closest(".hg-popup")
+                 .classList.remove("active");
+
+        });
+
+    });
+
+    document.querySelectorAll(".hg-popup-overlay").forEach(overlay => {
+
+        overlay.addEventListener("click", () => {
+
+            overlay.parentElement
+                   .classList.remove("active");
+
+        });
+
+    });
+
+});
 /**
  * Hiring Test — shared script
  * Banner: mobile hamburger menu open/close.
