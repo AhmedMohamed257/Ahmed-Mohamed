@@ -457,129 +457,6 @@
    Popup
 =========================== */
 
-.hg-modal{
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,.35);
-
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:999;
-
-}
-
-.hg-modal.active{
-
-    display:flex;
-
-}
-
-.hg-modal-box{
-
-    width:311px;
-
-    background:#fff;
-
-    padding:24px;
-
-    position:relative;
-
-}
-
-.hg-close{
-
-    position:absolute;
-
-    top:12px;
-
-    right:12px;
-
-    border:none;
-
-    background:none;
-
-    font-size:30px;
-
-    cursor:pointer;
-
-}
-
-.hg-modal-content{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:18px;
-
-}
-
-.hg-product-top{
-
-    display:flex;
-
-    gap:18px;
-
-}
-
-.hg-product-top img{
-
-    width:120px;
-
-    height:140px;
-
-    object-fit:cover;
-
-}
-
-.hg-title{
-
-    font-size:30px;
-
-    margin:0 0 10px;
-
-}
-
-.hg-price{
-
-    font-size:24px;
-
-    margin-bottom:12px;
-
-}
-
-.hg-description{
-
-    font-size:16px;
-
-    line-height:1.5;
-
-}
-
-.hg-add{
-
-    width:100%;
-
-    height:50px;
-
-    background:#000;
-
-    color:#fff;
-
-    border:none;
-
-    cursor:pointer;
-
-    font-size:16px;
-
-}
 .hg-popup{
 
     position:fixed;
@@ -598,11 +475,6 @@
 .hg-popup.is-open{
     display:flex;
 }
-.hg-popup.active{
-
-    display:flex;
-
-}
 
 .hg-popup-overlay{
 
@@ -620,9 +492,11 @@
 
     background:#fff;
 
-    width:311px;
+    width:412px;
 
-    padding:24px;
+    max-width:calc(100vw - 32px);
+
+    padding:32px 28px 28px;
 
     z-index:2;
 
@@ -643,6 +517,223 @@
     cursor:pointer;
 
     font-size:28px;
+
+    line-height:1;
+
+}
+
+/* ---------- Image + title/price row ---------- */
+
+.hg-popup-top{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-bottom:20px;
+
+    padding-right:20px;
+
+}
+
+.hg-popup-image img{
+
+    width:120px;
+
+    height:140px;
+
+    display:block;
+
+    object-fit:cover;
+
+}
+
+.hg-popup-heading{
+
+    padding-top:4px;
+
+}
+
+.hg-popup-title{
+
+    font-size:20px;
+
+    font-weight:600;
+
+    line-height:1.25;
+
+    margin:0 0 8px;
+
+}
+
+.hg-popup-price{
+
+    font-size:16px;
+
+    color:#555;
+
+    margin:0;
+
+}
+
+/* ---------- Description ---------- */
+
+.hg-popup-description{
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    color:#444;
+
+    margin-bottom:20px;
+
+}
+
+.hg-popup-description p{
+    margin:0 0 10px;
+}
+.hg-popup-description p:last-child{
+    margin-bottom:0;
+}
+
+/* ---------- Field labels ---------- */
+
+.hg-popup-field-label{
+
+    display:block;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:.04em;
+
+    color:#777;
+
+    margin-bottom:8px;
+
+}
+
+/* ---------- Color swatch buttons ---------- */
+
+.hg-colors{
+
+    display:flex;
+
+    border:1px solid #e2e2e2;
+
+    margin-bottom:20px;
+
+}
+
+.hg-color-btn{
+
+    flex:1 1 50%;
+
+    height:44px;
+
+    background:#fff;
+
+    border:none;
+
+    border-left:1px solid #e2e2e2;
+
+    font-size:14px;
+
+    color:#111;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.hg-color-btn:first-child{
+
+    border-left:none;
+
+}
+
+.hg-color-btn.is-selected{
+
+    box-shadow: inset 3px 0 0 var(--hb-black);
+
+    background:#fafafa;
+
+    font-weight:600;
+
+}
+
+/* ---------- Size select ---------- */
+
+.hg-select-wrap{
+
+    position:relative;
+
+    margin-bottom:24px;
+
+}
+
+.hg-select{
+
+    width:100%;
+
+    height:44px;
+
+    padding:0 36px 0 14px;
+
+    border:1px solid #e2e2e2;
+
+    background:#fff;
+
+    font-size:14px;
+
+    color:#111;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    -moz-appearance:none;
+
+    cursor:pointer;
+
+}
+
+.hg-select-wrap::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:15px;
+
+    top:50%;
+
+    width:7px;
+
+    height:7px;
+
+    border-right:1.5px solid #444;
+
+    border-bottom:1.5px solid #444;
+
+    transform:translateY(-65%) rotate(45deg);
+
+    pointer-events:none;
+
+}
+
+/* ---------- Add to cart button ---------- */
+
+.hg-popup-box .hb-btn{
+
+    width:100%;
+
+    justify-content:space-between;
 
 }
 /* ---------------------------------------------------------- Mobile menu */

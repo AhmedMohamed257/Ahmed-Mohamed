@@ -26,7 +26,7 @@
               class="hg-plus"
               type="button"
               data-popup="popup-{{ block.id }}"
-              aria-label="Quick view {{ product.title }}"
+              aria-label="Quick view {{ block.settings.title }}"
           >
 
               <img
@@ -52,76 +52,77 @@
 
           <button class="hg-close" type="button" aria-label="Close">&times;</button>
 
-          <div class="hg-popup-grid">
+          <div class="hg-popup-top">
 
             <div class="hg-popup-image">
 
               {% if block.settings.popup_image %}
                 <img
-                src="{{ block.settings.popup_image | image_url: width: 500 }}"
-                width="250"
-                height="300"
+                src="{{ block.settings.popup_image | image_url: width: 300 }}"
+                width="120"
+                height="140"
                 alt="{{ block.settings.title }}">
               {% endif %}
 
             </div>
 
-            <div class="hg-popup-content">
+            <div class="hg-popup-heading">
 
-              <h3>{{ block.settings.title }}</h3>
+              <h3 class="hg-popup-title">{{ block.settings.title }}</h3>
 
-              <p class="hg-popup-price">
-                {{ block.settings.price }}
-              </p>
-
-              <div class="hg-popup-description">
-                {{ block.settings.description }}
-              </div>
-
-              <label>Color</label>
-
-              <div class="hg-colors">
-
-                <button type="button" data-color="{{ block.settings.color1 | escape }}">{{ block.settings.color1 }}</button>
-
-                <button type="button" data-color="{{ block.settings.color2 | escape }}">{{ block.settings.color2 }}</button>
-
-              </div>
-
-              <label>Size</label>
-
-              <select>
-
-                <option value="">{{ block.settings.size_placeholder }}</option>
-
-                <option value="S">S</option>
-
-                <option value="M">M</option>
-
-                <option value="L">L</option>
-
-                <option value="XL">XL</option>
-
-              </select>
-
-              <a href="{{ block.settings.button_link }}" class="hb-btn hb-btn--black">
-
-                <span class="hb-btn__fill"></span>
-
-                <span class="hb-btn__label">
-                  {{ block.settings.button_text }}
-                </span>
-
-                <span class="hb-btn__arrow">
-                  <img src="{{ 'icon-arrow.svg' | asset_url }}" alt="">
-                  width ="25.51"
-                </span>
-
-              </a>
+              <p class="hg-popup-price">{{ block.settings.price }}</p>
 
             </div>
 
           </div>
+
+          <div class="hg-popup-description">
+            {{ block.settings.description }}
+          </div>
+
+          <span class="hg-popup-field-label">Color</span>
+
+          <div class="hg-colors">
+
+            <button type="button" class="hg-color-btn is-selected" data-color="{{ block.settings.color1 | escape }}">{{ block.settings.color1 }}</button>
+
+            <button type="button" class="hg-color-btn" data-color="{{ block.settings.color2 | escape }}">{{ block.settings.color2 }}</button>
+
+          </div>
+
+          <span class="hg-popup-field-label">Size</span>
+
+          <div class="hg-select-wrap">
+
+            <select class="hg-select">
+
+              <option value="">{{ block.settings.size_placeholder }}</option>
+
+              <option value="S">S</option>
+
+              <option value="M">M</option>
+
+              <option value="L">L</option>
+
+              <option value="XL">XL</option>
+
+            </select>
+
+          </div>
+
+          <a href="{{ block.settings.button_link }}" class="hb-btn hb-btn--black">
+
+            <span class="hb-btn__fill"></span>
+
+            <span class="hb-btn__label">
+              {{ block.settings.button_text }}
+            </span>
+
+            <span class="hb-btn__arrow">
+              <img src="{{ 'icon-arrow.svg' | asset_url }}" alt="">
+            </span>
+
+          </a>
 
         </div>
 
@@ -149,6 +150,15 @@
     if (closeBtn || overlay) {
       const popup = e.target.closest('.hg-popup');
       if (popup) popup.classList.remove('is-open');
+    }
+
+    const colorBtn = e.target.closest('.hg-color-btn');
+    if (colorBtn) {
+      const group = colorBtn.closest('.hg-colors');
+      group.querySelectorAll('.hg-color-btn').forEach(function (btn) {
+        btn.classList.remove('is-selected');
+      });
+      colorBtn.classList.add('is-selected');
     }
   });
 
