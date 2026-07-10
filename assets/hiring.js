@@ -1,52 +1,28 @@
-document.addEventListener("DOMContentLoaded",()=>{
+function initPopup(){
 
-    document.querySelectorAll(".hg-plus").forEach(button=>{
+document.addEventListener('click', function(e){
 
-        button.addEventListener("click",function(e){
+const trigger=e.target.closest('[data-popup]');
 
-            e.preventDefault();
+if(trigger){
 
-            e.stopPropagation();
+const popup=document.getElementById(trigger.dataset.popup);
 
-            const popup=document.getElementById(
+if(popup){
 
-                this.dataset.popup
+popup.classList.add('is-open');
 
-            );
+}
 
-            popup.classList.add("active");
-            popup.classList.add('is-open');
-        });
-
-    });
-
-
-
-
-    document.querySelectorAll(".hg-close").forEach(close=>{
-
-        close.addEventListener("click",function(){
-
-            this.closest(".hg-popup").classList.remove("active");
-
-        });
-
-    });
-
-
-
-
-    document.querySelectorAll(".hg-popup-overlay").forEach(overlay=>{
-
-        overlay.addEventListener("click",function(){
-
-            this.parentElement.classList.remove("active");
-
-        });
-
-    });
+}
 
 });
+
+}
+
+initPopup();
+
+document.addEventListener('shopify:section:load',initPopup);
 /**
  * Hiring Test — shared script
  * Banner: mobile hamburger menu open/close.
