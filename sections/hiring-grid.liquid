@@ -52,75 +52,69 @@
 
           <button class="hg-close" type="button" aria-label="Close">&times;</button>
 
-          <div class="hg-popup-top">
+          <div class="hg-popup-image">
 
-            <div class="hg-popup-image">
-
-              {% if block.settings.popup_image %}
-                <img
-                src="{{ block.settings.popup_image | image_url: width: 300 }}"
-                width="120"
-                height="140"
-                alt="{{ block.settings.title }}">
-              {% endif %}
-
-            </div>
-
-            <div class="hg-popup-heading">
-
-              <h3 class="hg-popup-title">{{ block.settings.title }}</h3>
-
-              <p class="hg-popup-price">{{ block.settings.price }}</p>
-
-            </div>
+            {% if block.settings.popup_image %}
+              <img
+              src="{{ block.settings.popup_image | image_url: width: 300 }}"
+              width="120"
+              height="140"
+              alt="{{ block.settings.title }}">
+            {% endif %}
 
           </div>
+
+          <h3 class="hg-popup-title">{{ block.settings.title }}</h3>
+
+          <p class="hg-popup-price">{{ block.settings.price }}</p>
 
           <div class="hg-popup-description">
             {{ block.settings.description }}
           </div>
 
-          <span class="hg-popup-field-label">Color</span>
+          <div class="hg-popup-color-section">
 
-          <div class="hg-colors">
+            <span class="hg-popup-field-label">Color</span>
 
-            <button type="button" class="hg-color-btn is-selected" data-color="{{ block.settings.color1 | escape }}">{{ block.settings.color1 }}</button>
+            <div class="hg-colors">
 
-            <button type="button" class="hg-color-btn" data-color="{{ block.settings.color2 | escape }}">{{ block.settings.color2 }}</button>
+              <button type="button" class="hg-color-btn is-selected" data-color="{{ block.settings.color1 | escape }}">{{ block.settings.color1 }}</button>
 
-          </div>
+              <button type="button" class="hg-color-btn" data-color="{{ block.settings.color2 | escape }}">{{ block.settings.color2 }}</button>
 
-          <span class="hg-popup-field-label">Size</span>
-
-          <div class="hg-select-wrap">
-
-            <select class="hg-select">
-
-              <option value="">{{ block.settings.size_placeholder }}</option>
-
-              <option value="S">S</option>
-
-              <option value="M">M</option>
-
-              <option value="L">L</option>
-
-              <option value="XL">XL</option>
-
-            </select>
+            </div>
 
           </div>
 
-          <a href="{{ block.settings.button_link }}" class="hb-btn hb-btn--black">
+          <div class="hg-popup-size-section">
 
-            <span class="hb-btn__fill"></span>
+            <span class="hg-popup-field-label">Size</span>
 
-            <span class="hb-btn__label">
-              {{ block.settings.button_text }}
-            </span>
+            <div class="hg-select-wrap">
 
-            <span class="hb-btn__arrow">
-              <img src="{{ 'icon-arrow.svg' | asset_url }}" alt="">
-            </span>
+              <select class="hg-select">
+
+                <option value="">{{ block.settings.size_placeholder }}</option>
+
+                <option value="S">S</option>
+
+                <option value="M">M</option>
+
+                <option value="L">L</option>
+
+                <option value="XL">XL</option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+          <a href="{{ block.settings.button_link }}" class="hg-popup-cta">
+
+            <span>{{ block.settings.button_text }}</span>
+
+            <img src="{{ 'icon-arrow.svg' | asset_url }}" alt="">
 
           </a>
 

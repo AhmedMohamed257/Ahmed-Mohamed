@@ -492,11 +492,11 @@
 
     background:#fff;
 
-    width:412px;
+    width:311px;
+
+    height:446px;
 
     max-width:calc(100vw - 32px);
-
-    padding:32px 28px 28px;
 
     z-index:2;
 
@@ -506,9 +506,9 @@
 
     position:absolute;
 
-    right:18px;
+    right:14px;
 
-    top:18px;
+    top:14px;
 
     background:none;
 
@@ -516,31 +516,35 @@
 
     cursor:pointer;
 
-    font-size:28px;
+    font-size:24px;
 
     line-height:1;
 
+    z-index:3;
+
 }
 
-/* ---------- Image + title/price row ---------- */
+/* ---------- Popup image ---------- */
 
-.hg-popup-top{
+.hg-popup-image{
 
-    display:flex;
+    position:absolute;
 
-    gap:18px;
+    top:36.42px;
 
-    margin-bottom:20px;
+    left:17px;
 
-    padding-right:20px;
+    width:120px;
+
+    height:140px;
 
 }
 
 .hg-popup-image img{
 
-    width:120px;
+    width:100%;
 
-    height:140px;
+    height:100%;
 
     display:block;
 
@@ -548,31 +552,63 @@
 
 }
 
-.hg-popup-heading{
-
-    padding-top:4px;
-
-}
+/* ---------- Title ---------- */
 
 .hg-popup-title{
 
-    font-size:20px;
+    position:absolute;
 
-    font-weight:600;
+    top:39px;
 
-    line-height:1.25;
+    left:145px;
 
-    margin:0 0 8px;
+    width:136px;
 
-}
+    height:38px;
 
-.hg-popup-price{
+    margin:0;
+
+    font-family:'Jost', sans-serif;
+
+    font-weight:300;
 
     font-size:16px;
 
-    color:#555;
+    line-height:120%;
+
+    letter-spacing:0px;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+/* ---------- Price ---------- */
+
+.hg-popup-price{
+
+    position:absolute;
+
+    top:88px;
+
+    left:145px;
+
+    width:64px;
+
+    height:19px;
 
     margin:0;
+
+    font-family:'Lustria', serif;
+
+    font-weight:400;
+
+    font-size:16px;
+
+    line-height:120%;
+
+    letter-spacing:0px;
 
 }
 
@@ -580,18 +616,32 @@
 
 .hg-popup-description{
 
+    position:absolute;
+
+    top:119px;
+
+    left:145px;
+
+    width:146px;
+
+    height:60px;
+
+    overflow:hidden;
+
+    font-family:'Jost', sans-serif;
+
+    font-weight:300;
+
     font-size:14px;
 
-    line-height:1.6;
+    line-height:110%;
 
-    color:#444;
-
-    margin-bottom:20px;
+    letter-spacing:-0.01em;
 
 }
 
 .hg-popup-description p{
-    margin:0 0 10px;
+    margin:0 0 6px;
 }
 .hg-popup-description p:last-child{
     margin-bottom:0;
@@ -617,15 +667,29 @@
 
 }
 
-/* ---------- Color swatch buttons ---------- */
+/* ---------- Color section ---------- */
+
+.hg-popup-color-section{
+
+    position:absolute;
+
+    top:186px;
+
+    left:20px;
+
+    width:271px;
+
+    height:64.477px;
+
+}
 
 .hg-colors{
 
     display:flex;
 
-    border:1px solid #e2e2e2;
+    height:40px;
 
-    margin-bottom:20px;
+    border:1px solid #e2e2e2;
 
 }
 
@@ -633,7 +697,7 @@
 
     flex:1 1 50%;
 
-    height:44px;
+    height:100%;
 
     background:#fff;
 
@@ -667,13 +731,27 @@
 
 }
 
-/* ---------- Size select ---------- */
+/* ---------- Size section ---------- */
+
+.hg-popup-size-section{
+
+    position:absolute;
+
+    top:262px;
+
+    left:20px;
+
+    width:271px;
+
+    height:64px;
+
+}
 
 .hg-select-wrap{
 
     position:relative;
 
-    margin-bottom:24px;
+    height:40px;
 
 }
 
@@ -681,7 +759,7 @@
 
     width:100%;
 
-    height:44px;
+    height:100%;
 
     padding:0 36px 0 14px;
 
@@ -727,13 +805,62 @@
 
 }
 
-/* ---------- Add to cart button ---------- */
+/* ---------- Add to cart button (no hover) ---------- */
 
-.hg-popup-box .hb-btn{
+.hg-popup-cta{
 
-    width:100%;
+    position:absolute;
 
-    justify-content:space-between;
+    top:377px;
+
+    left:20px;
+
+    width:271px;
+
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    background:#000;
+
+    color:#fff;
+
+    border:none;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:0.04em;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+}
+
+.hg-popup-cta:hover,
+.hg-popup-cta:focus-visible{
+
+    background:#000;
+
+    color:#fff;
+
+}
+
+.hg-popup-cta img{
+
+    width:15px;
+
+    filter:brightness(0) invert(1);
 
 }
 /* ---------------------------------------------------------- Mobile menu */
