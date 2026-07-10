@@ -203,19 +203,6 @@
     object-fit:cover;
 
 }
-
-/* ---------- Top Artwork ---------- */
-
-.hb-hero__top{
-    width:100%;
-    overflow:hidden;
-}
-
-.hb-hero__artwork{
-    width:100%;
-    display:block;
-}
-
 /* ---------- Bottom Layout ---------- */
 
 .hb-hero__bottom{
