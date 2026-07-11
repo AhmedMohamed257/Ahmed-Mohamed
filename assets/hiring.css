@@ -459,21 +459,23 @@
 =========================== */
 
 .hg-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
 
-    position:fixed;
+    width: 100vw;
+    height: 100vh;
 
-    top:0;
-    left:0;
+    display: none;
 
-    width:100vw;
-    height:100vh;
+    justify-content: center;
+    align-items: center;
 
-    display:none;
+    z-index: 99999;
+}
 
-    justify-content:center;
-    align-items:center;
-
-    z-index:9999;
+.hg-popup.active{
+    display: flex;
 }
 
 .hg-popup.active{
