@@ -31,11 +31,14 @@
           "type": "product",
           "settings": {
             "image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
+            "popup_image": "shopify://shop_images/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
             "title": "Orange Wide Leg",
             "price": "980,00€",
             "description": "<p>This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.</p>",
-            "color1": "White",
-            "color2": "Black",
+            "color1": "blue",
+            "color1_swatch": "#0230FC",
+            "color2": "Grey",
+            "color2_swatch": "#B5B5B5",
             "size_placeholder": "Choose your size",
             "button_text": "ADD TO CART",
             "button_link": ""
@@ -49,7 +52,9 @@
             "price": "980,00€",
             "description": "<p>This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.</p>",
             "color1": "White",
+            "color1_swatch": "#ffffff",
             "color2": "Black",
+            "color2_swatch": "#000000",
             "size_placeholder": "Choose your size",
             "button_text": "ADD TO CART",
             "button_link": ""
@@ -59,11 +64,13 @@
           "type": "product",
           "settings": {
             "image": "shopify://shop_images/red-plaid-shirt_925x_70e9e5a8-8fc5-4d60-9a9a-cc2e0dd57cc9.jpg",
-            "title": "Orange Wide Leg",
+            "title": "Orange Wide Leg dasdasd",
             "price": "980,00€",
             "description": "<p>This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.</p>",
             "color1": "White",
+            "color1_swatch": "#ffffff",
             "color2": "Black",
+            "color2_swatch": "#000000",
             "size_placeholder": "Choose your size",
             "button_text": "ADD TO CART",
             "button_link": ""
@@ -77,7 +84,9 @@
             "price": "980,00€",
             "description": "<p>This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.</p>",
             "color1": "White",
+            "color1_swatch": "#ffffff",
             "color2": "Black",
+            "color2_swatch": "#000000",
             "size_placeholder": "Choose your size",
             "button_text": "ADD TO CART",
             "button_link": ""
@@ -91,7 +100,9 @@
             "price": "980,00€",
             "description": "<p>This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.</p>",
             "color1": "White",
+            "color1_swatch": "#ffffff",
             "color2": "Black",
+            "color2_swatch": "#000000",
             "size_placeholder": "Choose your size",
             "button_text": "ADD TO CART",
             "button_link": ""
@@ -105,7 +116,9 @@
             "price": "980,00€",
             "description": "<p>This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.</p>",
             "color1": "White",
+            "color1_swatch": "#ffffff",
             "color2": "Black",
+            "color2_swatch": "#000000",
             "size_placeholder": "Choose your size",
             "button_text": "ADD TO CART",
             "button_link": ""
