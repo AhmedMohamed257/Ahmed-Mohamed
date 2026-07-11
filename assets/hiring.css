@@ -376,9 +376,10 @@
 }
 
 .hg-image{
-    position:relative;
+    display:block;
+    width:100%;
+    height:100%;
 }
-
 
 .hg-image img{
     width:100%;
@@ -394,12 +395,26 @@
 }
 
 .hg-plus{
+
     position:absolute;
-    left:50%;
+
     top:50%;
+    left:50%;
+
     transform:translate(-50%,-50%);
-    z-index:20;
+
+    width:38px;
+    height:38px;
+
+    padding:0;
+
+    border:none;
+
+    background:transparent;
+
     cursor:pointer;
+
+    transition:.25s;
 }
 
 .hg-plus img{
@@ -457,7 +472,7 @@
     z-index:9999;
 
 }
-.hg-popup.is-open{
+.hg-popup.active{
     display:flex;
 }
 
