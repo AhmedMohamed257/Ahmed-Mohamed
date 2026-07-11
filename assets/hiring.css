@@ -475,17 +475,6 @@
 .hg-popup.active{
     display:flex;
 }
-
-.hg-popup-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    background:radial-gradient(circle at 50% 40%, rgba(0,0,0,.35) 0%, rgba(0,0,0,.6) 100%);
-
-}
-
 .hg-popup-box{
 
     position:relative;
@@ -501,6 +490,17 @@
     z-index:2;
 
 }
+.hg-popup-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:radial-gradient(circle at 50% 40%, rgba(0,0,0,.35) 0%, rgba(0,0,0,.6) 100%);
+
+}
+
+
 
 .hg-close{
 
