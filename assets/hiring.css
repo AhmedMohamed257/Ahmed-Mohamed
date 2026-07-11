@@ -376,10 +376,9 @@
 }
 
 .hg-image{
-    display:block;
-    width:100%;
-    height:100%;
+    position:relative;
 }
+
 
 .hg-image img{
     width:100%;
@@ -395,26 +394,12 @@
 }
 
 .hg-plus{
-
     position:absolute;
-
-    top:50%;
     left:50%;
-
+    top:50%;
     transform:translate(-50%,-50%);
-
-    width:38px;
-    height:38px;
-
-    padding:0;
-
-    border:none;
-
-    background:transparent;
-
+    z-index:20;
     cursor:pointer;
-
-    transition:.25s;
 }
 
 .hg-plus img{
