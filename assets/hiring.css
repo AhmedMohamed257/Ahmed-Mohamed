@@ -476,6 +476,14 @@
 .hg-popup.active{
     display:flex;
 }
+.hg-popup-box{
+    position:relative;
+    z-index:2;
+
+    width:412px;
+    background:#fff;
+    padding:32px 28px;
+}
 
 .hg-popup-overlay{
     position:absolute;
@@ -489,14 +497,6 @@
     z-index:1;
 }
 
-.hg-popup-box{
-    position:relative;
-    z-index:2;
-
-    width:412px;
-    background:#fff;
-    padding:32px 28px;
-}
 
 .hg-close{
 
