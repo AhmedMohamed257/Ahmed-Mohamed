@@ -472,7 +472,7 @@
     z-index:9999;
 
 }
-.hg-popup.is-open{
+.hg-popup.active{
     display:flex;
 }
 
