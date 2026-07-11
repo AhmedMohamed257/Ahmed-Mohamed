@@ -43,7 +43,10 @@ document.addEventListener('click', function (e) {
   const trigger = e.target.closest('[data-popup]');
   if (trigger) {
     const popup = document.getElementById(trigger.dataset.popup);
-    if (popup) popup.classList.add('is-open');
+    if (popup) {
+      popup.classList.add('is-open');
+      document.documentElement.classList.add('hg-no-scroll');
+    }
     return;
   }
 
@@ -52,6 +55,9 @@ document.addEventListener('click', function (e) {
   if (closeBtn || overlay) {
     const popup = e.target.closest('.hg-popup');
     if (popup) popup.classList.remove('is-open');
+    if (!document.querySelector('.hg-popup.is-open')) {
+      document.documentElement.classList.remove('hg-no-scroll');
+    }
     return;
   }
 
@@ -70,5 +76,6 @@ document.addEventListener('keydown', function (e) {
     document.querySelectorAll('.hg-popup.is-open').forEach(function (popup) {
       popup.classList.remove('is-open');
     });
+    document.documentElement.classList.remove('hg-no-scroll');
   }
 });
