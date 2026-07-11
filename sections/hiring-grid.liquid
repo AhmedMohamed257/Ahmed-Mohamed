@@ -78,9 +78,21 @@
 
             <div class="hg-colors">
 
-              <button type="button" class="hg-color-btn is-selected" style="--hg-swatch: {{ block.settings.color1_swatch }};" data-color="{{ block.settings.color1 | escape }}">{{ block.settings.color1 }}</button>
+              <button type="button" class="hg-color-btn is-selected" data-color="{{ block.settings.color1 | escape }}">
+                <span class="hg-color-btn__fill"></span>
+                <svg class="hg-color-swatch" width="5" height="40" viewBox="0 0 5 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0.25" y="0.25" width="4.33929" height="39.1325" fill="{{ block.settings.color1_swatch }}" stroke="{{ block.settings.color1_swatch }}" stroke-width="0.5"/>
+                </svg>
+                <span class="hg-color-label">{{ block.settings.color1 }}</span>
+              </button>
 
-              <button type="button" class="hg-color-btn" style="--hg-swatch: {{ block.settings.color2_swatch }};" data-color="{{ block.settings.color2 | escape }}">{{ block.settings.color2 }}</button>
+              <button type="button" class="hg-color-btn" data-color="{{ block.settings.color2 | escape }}">
+                <span class="hg-color-btn__fill"></span>
+                <svg class="hg-color-swatch" width="5" height="40" viewBox="0 0 5 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0.25" y="0.25" width="4.33929" height="39.1325" fill="{{ block.settings.color2_swatch }}" stroke="{{ block.settings.color2_swatch }}" stroke-width="0.5"/>
+                </svg>
+                <span class="hg-color-label">{{ block.settings.color2 }}</span>
+              </button>
 
             </div>
 
