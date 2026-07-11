@@ -78,9 +78,9 @@
 
             <div class="hg-colors">
 
-              <button type="button" class="hg-color-btn is-selected" data-color="{{ block.settings.color1 | escape }}">{{ block.settings.color1 }}</button>
+              <button type="button" class="hg-color-btn is-selected" style="--hg-swatch: {{ block.settings.color1_swatch }};" data-color="{{ block.settings.color1 | escape }}">{{ block.settings.color1 }}</button>
 
-              <button type="button" class="hg-color-btn" data-color="{{ block.settings.color2 | escape }}">{{ block.settings.color2 }}</button>
+              <button type="button" class="hg-color-btn" style="--hg-swatch: {{ block.settings.color2_swatch }};" data-color="{{ block.settings.color2 | escape }}">{{ block.settings.color2 }}</button>
 
             </div>
 
@@ -129,41 +129,6 @@
   </div>
 
 </section>
-
-<script>
-  document.addEventListener('click', function (e) {
-    const trigger = e.target.closest('[data-popup]');
-    if (trigger) {
-      const popup = document.getElementById(trigger.dataset.popup);
-      if (popup) popup.classList.add("active");
-      return;
-    }
-
-    const closeBtn = e.target.closest('.hg-close');
-    const overlay = e.target.closest('.hg-popup-overlay');
-    if (closeBtn || overlay) {
-      const popup = e.target.closest('.hg-popup');
-      if (popup) popup.classList.remove('active');
-    }
-
-    const colorBtn = e.target.closest('.hg-color-btn');
-    if (colorBtn) {
-      const group = colorBtn.closest('.hg-colors');
-      group.querySelectorAll('.hg-color-btn').forEach(function (btn) {
-        btn.classList.remove('is-selected');
-      });
-      colorBtn.classList.add('is-selected');
-    }
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.hg-popup.is-open').forEach(function (popup) {
-        popup.classList.remove('active');
-      });
-    }
-  });
-</script>
 
 {% schema %}
 {
@@ -227,15 +192,29 @@
         {
           "type":"text",
           "id":"color1",
-          "label":"First Color",
+          "label":"First Color Label",
           "default":"White"
+        },
+
+        {
+          "type":"color",
+          "id":"color1_swatch",
+          "label":"First Color Swatch",
+          "default":"#FFFFFF"
         },
 
         {
           "type":"text",
           "id":"color2",
-          "label":"Second Color",
+          "label":"Second Color Label",
           "default":"Black"
+        },
+
+        {
+          "type":"color",
+          "id":"color2_swatch",
+          "label":"Second Color Swatch",
+          "default":"#000000"
         },
 
         {
