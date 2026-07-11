@@ -1,4 +1,4 @@
-
+2
 /**
  * Hiring Test — shared script
  * Banner: mobile hamburger menu open/close.
