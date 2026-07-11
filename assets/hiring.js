@@ -46,6 +46,7 @@ document.addEventListener('click', function (e) {
     if (popup) {
       popup.classList.add('is-open');
       document.documentElement.classList.add('hg-no-scroll');
+      document.body.classList.add('hg-no-scroll');
     }
     return;
   }
@@ -57,6 +58,7 @@ document.addEventListener('click', function (e) {
     if (popup) popup.classList.remove('is-open');
     if (!document.querySelector('.hg-popup.is-open')) {
       document.documentElement.classList.remove('hg-no-scroll');
+      document.body.classList.remove('hg-no-scroll');
     }
     return;
   }
@@ -77,5 +79,6 @@ document.addEventListener('keydown', function (e) {
       popup.classList.remove('is-open');
     });
     document.documentElement.classList.remove('hg-no-scroll');
+    document.body.classList.remove('hg-no-scroll');
   }
 });
