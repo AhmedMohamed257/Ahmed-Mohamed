@@ -85,7 +85,7 @@
 .hb-btn--yellow:hover .hb-btn__arrow,
 .hb-btn--yellow:focus-visible .hb-btn__label,
 .hb-btn--yellow:focus-visible .hb-btn__arrow {
-  color: var(--hb-yellow);
+  color: var(--hb-white);
 }
 
 /* Hero button: black base, yellow sweeps in left-to-right on hover */
@@ -304,8 +304,25 @@
 
     width:18px;
 
-    filter:brightness(0) invert(1);
+    transition: filter var(--hb-transition);
 
+}
+
+/* Arrow mirrors label color: dark on yellow bg, white on black bg — and swaps on hover */
+.hb-btn--yellow .hb-btn__arrow img{
+    filter:none;
+}
+.hb-btn--yellow:hover .hb-btn__arrow img,
+.hb-btn--yellow:focus-visible .hb-btn__arrow img{
+    filter:brightness(0) invert(1);
+}
+
+.hb-btn--black .hb-btn__arrow img{
+    filter:brightness(0) invert(1);
+}
+.hb-btn--black:hover .hb-btn__arrow img,
+.hb-btn--black:focus-visible .hb-btn__arrow img{
+    filter:none;
 }
 /* --------------------------------------------------------------- Infobar */
 
@@ -482,7 +499,16 @@
 
     inset:0;
 
-    background:radial-gradient(circle at 50% 40%, rgba(0,0,0,.35) 0%, rgba(0,0,0,.6) 100%);
+    background:linear-gradient(180deg, rgba(0,0,0,.2) 0%, rgba(0,0,0,.35) 45%, rgba(0,0,0,.6) 100%);
+
+}
+
+html.hg-no-scroll,
+html.hg-no-scroll body{
+
+    overflow:hidden;
+
+    height:100%;
 
 }
 
@@ -699,9 +725,17 @@
 
 .hg-color-btn{
 
+    position:relative;
+
     flex:1 1 50%;
 
     height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
 
     padding:0 14px;
 
@@ -711,7 +745,7 @@
 
     border:none;
 
-    border-left:1px solid #000;
+    border-left:1px solid #ddd;
 
     text-align:left;
 
@@ -719,9 +753,7 @@
 
     cursor:pointer;
 
-    --hg-swatch:#000;
-
-    transition:background-color .2s ease, color .2s ease;
+    overflow:hidden;
 
 }
 
@@ -731,12 +763,67 @@
 
 }
 
-.hg-color-btn:hover,
-.hg-color-btn.is-selected{
+.hg-color-swatch{
 
-    background-color:var(--hg-swatch);
+    position:relative;
+
+    z-index:1;
+
+    flex:0 0 auto;
+
+    width:5px;
+
+    height:70%;
+
+    display:block;
+
+}
+
+.hg-color-btn__fill{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#000;
+
+    transform:scaleX(0);
+
+    transform-origin:left center;
+
+    transition:transform var(--hb-transition);
+
+    z-index:0;
+
+}
+
+.hg-color-btn:hover .hg-color-btn__fill,
+.hg-color-btn:focus-visible .hg-color-btn__fill{
+
+    transform:scaleX(1);
+
+}
+
+.hg-color-label{
+
+    position:relative;
+
+    z-index:1;
+
+    transition:color var(--hb-transition);
+
+}
+
+.hg-color-btn:hover .hg-color-label,
+.hg-color-btn:focus-visible .hg-color-label{
 
     color:#fff;
+
+}
+
+.hg-color-btn.is-selected .hg-color-label{
+
+    font-weight:600;
 
 }
 
