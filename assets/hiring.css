@@ -490,19 +490,12 @@
 }
 
 .hg-popup-box{
-
     position:relative;
-
-    background:#fff;
-
-    width:412px;
-
-    max-width:calc(100vw - 32px);
-
-    padding:32px 28px 28px;
-
     z-index:2;
 
+    width:412px;
+    background:#fff;
+    padding:32px 28px;
 }
 
 .hg-close{
