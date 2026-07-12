@@ -138,16 +138,29 @@
 }
 
 .hb-logo {
+  width:151.44px;
+  height:19px;
   margin: 0;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.08em;
+  display:flex;
+  align-items:center;
 }
 
 .hb-topbar__message {
+  width:260px;
+  height:14px;
   margin: 0;
+  font-family:'Jost', sans-serif;
+  font-weight:400;
+  font-size:16px;
+  line-height:13.42px;
+  letter-spacing:0px;
   text-align: center;
-  font-size: 14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .hb-menu-toggle {
