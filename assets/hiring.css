@@ -492,7 +492,21 @@
 .hg-popup.is-open{
     display:flex;
 }
+.hg-popup-box{
 
+    position:relative;
+
+    background:linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+
+    width:311px;
+
+    height:446px;
+
+    max-width:calc(100vw - 32px);
+
+    z-index:2;
+
+}
 .hg-popup-overlay{
 
     position:absolute;
@@ -512,20 +526,7 @@ body.hg-no-scroll{
 
 }
 
-.hg-popup-box{
 
-    position:relative;
-
-    background:linear-gradient(0,0,0, rgba(0,0,0,.7) 100%);
-    width:311px;
-
-    height:446px;
-
-    max-width:calc(100vw - 32px);
-
-    z-index:2;
-
-}
 
 .hg-close{
 
