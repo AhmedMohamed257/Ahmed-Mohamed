@@ -961,6 +961,13 @@ body.hg-no-scroll{
   color: var(--hb-text);
 }
 
+/* ================================================================
+   Mobile (<= 749px)
+   ================================================================ */
+/* ==========================================================
+   MOBILE (0px - 749px)
+========================================================== */
+
 @media screen and (max-width:749px){
 
 /* -----------------------------
@@ -997,10 +1004,8 @@ body.hg-no-scroll{
 .hb-topbar .hb-btn--yellow{
     display:none;
 }
-
-
 /* -----------------------------
-   Hero — absolute layout (matches Figma frame exactly)
+   Hero
 ------------------------------*/
 
 .hb-hero{
@@ -1012,6 +1017,17 @@ body.hg-no-scroll{
     display:none; /* replaced by hb-right artwork positioned below */
 }
 
+.hb-top-image img{
+
+    width:100%;
+
+    height:auto;
+
+    display:block;
+
+    object-fit:cover;
+}
+
 .hb-bottom{
     position:relative;
     width:375.44px;
@@ -1020,6 +1036,24 @@ body.hg-no-scroll{
     margin:0 auto;
     display:block; /* override desktop grid */
 }
+.hb-hero .hb-btn--black:hover .hb-btn__fill,
+.hb-hero .hb-btn--black:focus-visible .hb-btn__fill{
+    transform:scaleX(0);
+}
+.hb-hero .hb-btn--black:hover .hb-btn__label,
+.hb-hero .hb-btn--black:hover .hb-btn__arrow,
+.hb-hero .hb-btn--black:focus-visible .hb-btn__label,
+.hb-hero .hb-btn--black:focus-visible .hb-btn__arrow{
+    color:var(--hb-white);
+}
+.hb-hero .hb-btn--black:hover .hb-btn__arrow img,
+.hb-hero .hb-btn--black:focus-visible .hb-btn__arrow img{
+    filter:brightness(0) invert(1);
+}
+
+/* -----------------------------
+   Left Content
+------------------------------*/
 
 .hb-left{
     padding:0;
@@ -1077,6 +1111,9 @@ body.hg-no-scroll{
     font-size:16px;
     text-transform:uppercase;
 }
+/* -----------------------------
+   Right Illustration
+------------------------------*/
 
 .hb-right{
     position:absolute;
@@ -1095,8 +1132,6 @@ body.hg-no-scroll{
     max-width:none;
     object-fit:contain;
 }
-
-
 /* -----------------------------
    Info Bar
 ------------------------------*/
@@ -1119,9 +1154,8 @@ body.hg-no-scroll{
     text-align:center;
 }
 
-
 /* -----------------------------
-   Grid Section (2nd section)
+   Grid Section
 ------------------------------*/
 
 .hiring-grid{
@@ -1183,24 +1217,14 @@ body.hg-no-scroll{
     width:34px;
     height:34px;
 }
-
-
 /* -----------------------------
    Popup
 ------------------------------*/
-
 .hg-popup-box{
     width:92vw;
     max-width:320px;
     height:446px;
-}
-
-
-/* -----------------------------
-   Mobile Menu
-------------------------------*/
-
-.hb-mobile-menu{
+}.hb-mobile-menu{
     padding:20px;
     background:#fff;
     overflow-y:auto;
