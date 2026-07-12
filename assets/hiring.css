@@ -492,20 +492,6 @@
 .hg-popup.is-open{
     display:flex;
 }
-
-.hg-popup-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:1;
-
-    background-color:rgba(0,0,0,.5);
-
-    background-image:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.7) 100%);
-
-}
 html.hg-no-scroll,
 body.hg-no-scroll{
 
@@ -513,21 +499,20 @@ body.hg-no-scroll{
 
 }
 .hg-popup-box{
-
     position:relative;
-
-    background:linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
-
+    background:#ffffff;
     width:311px;
-
     height:446px;
-
     max-width:calc(100vw - 32px);
-
     z-index:2;
-
 }
 
+.hg-popup-overlay{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.5) 55%, rgba(0,0,0,.8) 100%);
+}
 .hg-close{
 
     position:absolute;
