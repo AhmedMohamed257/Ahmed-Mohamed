@@ -125,15 +125,13 @@
 
     height:64px;
 
-    display:grid;
-
-    grid-template-columns:
-
-    220px
-    1fr
-    220px;
+    display:flex;
 
     align-items:center;
+
+    justify-content:center;
+
+    gap:360px;
 
     padding:10px 50px;
 
