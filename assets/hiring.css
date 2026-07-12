@@ -498,6 +498,8 @@ body.hg-no-scroll{
     overflow:hidden !important;
 
 }
+/* ---------- Popup content flow (image/title/price/description stay fixed, options flow below) ---------- */
+
 .hg-popup-box{
     position:relative;
     background:#ffffff;
@@ -505,6 +507,228 @@ body.hg-no-scroll{
     height:446px;
     max-width:calc(100vw - 32px);
     z-index:2;
+    overflow-y:auto;
+}
+
+.hg-quickview{
+    display:block;
+}
+
+.hg-popup-option-section{
+    position:absolute;
+    left:20px;
+    width:271px;
+}
+
+.hg-popup-option-section[data-option-index="1"]{
+    top:186px;
+}
+
+.hg-popup-option-section[data-option-index="2"]{
+    top:262px;
+}
+
+.hg-popup-option-section[data-option-index="3"]{
+    top:262px; /* stacked layout below only kicks in if a 3rd option exists — see note below */
+}
+
+.hg-colors{
+
+    display:flex;
+
+    height:40px;
+
+    border:1px solid #ddd;
+
+}
+
+.hg-color-item{
+
+    display:flex;
+
+    align-items:stretch;
+
+    flex:1 1 50%;
+
+}
+
+.hg-color-item:not(:first-child){
+
+    border-left:1px solid #ddd;
+
+}
+
+.hg-color-swatch{
+
+    flex:0 0 auto;
+
+    width:5px;
+
+    height:100%;
+
+    display:block;
+
+    vertical-align:top;
+
+}
+
+.hg-color-btn{
+
+    position:relative;
+
+    flex:1 1 auto;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 14px;
+
+    background:#fff;
+
+    color:#111;
+
+    border:none;
+
+    text-align:left;
+
+    font-size:14px;
+
+    cursor:pointer;
+
+}
+
+.hg-color-label{
+
+    position:relative;
+
+    z-index:1;
+
+}
+
+.hg-select-wrap{
+
+    position:relative;
+
+    height:40px;
+
+}
+
+.hg-select{
+
+    width:100%;
+
+    height:100%;
+
+    padding:0 36px 0 14px;
+
+    border:1px solid #ddd;
+
+    background:#fff;
+
+    font-size:14px;
+
+    color:#111;
+
+    text-align:center;
+
+    text-align-last:center;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    -moz-appearance:none;
+
+    cursor:pointer;
+
+}
+
+.hg-select-wrap::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:15px;
+
+    top:50%;
+
+    width:7px;
+
+    height:7px;
+
+    border-right:1.5px solid #444;
+
+    border-bottom:1.5px solid #444;
+
+    transform:translateY(-65%) rotate(45deg);
+
+    pointer-events:none;
+
+}
+
+.hg-popup-cta{
+
+    position:absolute;
+
+    top:377px;
+
+    left:20px;
+
+    width:271px;
+
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    background:#000;
+
+    color:#fff;
+
+    border:none;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:0.04em;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+}
+
+.hg-popup-cta:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+.hg-popup-cta img{
+
+    width:15px;
+
+    filter:brightness(0) invert(1);
+
+}
+
+.hg-popup-status{
+    position:absolute;
+    top:428px;
+    left:20px;
+    width:271px;
+    font-size:11px;
+    text-align:center;
+    color:#555;
 }
 
 .hg-popup-overlay{
