@@ -498,7 +498,6 @@ body.hg-no-scroll{
     overflow:hidden !important;
 
 }
-
 .hg-popup-box{
     position:relative;
     background:#ffffff;
@@ -506,16 +505,15 @@ body.hg-no-scroll{
     height:446px;
     max-width:calc(100vw - 32px);
     z-index:2;
-    overflow-y:auto;
 }
 
 .hg-popup-overlay{
     position:absolute;
     inset:0;
     z-index:1;
-    background:linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.5) 55%, rgba(0,0,0,.8) 100%);
+    background-color:rgba(0,0,0,.5);
+    background-image:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.7) 100%);
 }
-
 .hg-close{
 
     position:absolute;
@@ -685,28 +683,20 @@ body.hg-no-scroll{
 
 }
 
-/* ---------- Option sections: order controlled by data-role, not product's raw index ---------- */
+/* ---------- Color section ---------- */
 
-.hg-popup-option-section{
+.hg-popup-color-section{
 
     position:absolute;
+
+    top:186px;
 
     left:20px;
 
     width:271px;
 
-}
+    height:64.477px;
 
-.hg-popup-option-section[data-role="color"]{
-    top:186px;
-}
-
-.hg-popup-option-section[data-role="size"]{
-    top:262px;
-}
-
-.hg-popup-option-section[data-role="other"]{
-    top:262px;
 }
 
 .hg-colors{
@@ -773,6 +763,44 @@ body.hg-no-scroll{
 
     cursor:pointer;
 
+    overflow:hidden;
+
+    z-index:0;
+
+}
+
+.hg-color-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:-1;
+
+    background:#000;
+
+    transform:scaleX(0);
+
+    transform-origin:left center;
+
+    transition:transform .3s ease;
+
+}
+
+.hg-color-btn.is-selected::before{
+
+    transform:scaleX(1);
+
+}
+
+.hg-color-btn.is-selected{
+
+    color:#fff;
+
+    background:#fff;
+
 }
 
 .hg-color-label{
@@ -780,6 +808,30 @@ body.hg-no-scroll{
     position:relative;
 
     z-index:1;
+
+    transition:font-weight .2s ease;
+
+}
+
+.hg-color-label{
+
+    font-weight:600;
+
+}
+
+/* ---------- Size section ---------- */
+
+.hg-popup-size-section{
+
+    position:absolute;
+
+    top:262px;
+
+    left:20px;
+
+    width:271px;
+
+    height:64px;
 
 }
 
@@ -845,7 +897,7 @@ body.hg-no-scroll{
 
 }
 
-/* ---------- Add to cart ---------- */
+/* ---------- Add to cart button (no hover) ---------- */
 
 .hg-popup-cta{
 
@@ -887,9 +939,13 @@ body.hg-no-scroll{
 
 }
 
-.hg-popup-cta:disabled{
-    opacity:.5;
-    cursor:not-allowed;
+.hg-popup-cta:hover,
+.hg-popup-cta:focus-visible{
+
+    background:#000;
+
+    color:#fff;
+
 }
 
 .hg-popup-cta img{
@@ -898,16 +954,6 @@ body.hg-no-scroll{
 
     filter:brightness(0) invert(1);
 
-}
-
-.hg-popup-status{
-    position:absolute;
-    top:428px;
-    left:20px;
-    width:271px;
-    font-size:11px;
-    text-align:center;
-    color:#555;
 }
 /* ---------------------------------------------------------- Mobile menu */
 
