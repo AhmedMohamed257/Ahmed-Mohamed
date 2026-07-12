@@ -45,7 +45,6 @@
   border: none;
 }
 
-/* the label + arrow sit above the sweeping fill layer */
 .hb-btn__label,
 .hb-btn__arrow {
   position: relative;
@@ -60,7 +59,6 @@
   height: 10px;
 }
 
-/* the fill layer: starts collapsed at the left edge, expands on hover */
 .hb-btn__fill {
   position: absolute;
   inset: 0;
@@ -75,7 +73,6 @@
   transform: scaleX(1);
 }
 
-/* Top bar button: yellow base, black sweeps in left-to-right on hover */
 .hb-btn--yellow {
   background: var(--hb-yellow);
   color: var(--hb-black);
@@ -90,7 +87,6 @@
   color: var(--hb-white);
 }
 
-/* Hero button: black base, yellow sweeps in left-to-right on hover */
 .hb-btn--black {
   background: var(--hb-black);
   color: var(--hb-white);
@@ -116,38 +112,27 @@
 /* -------------------------------------------------------------- Top bar */
 
 .hb-topbar {
-  margin:0;
-  padding:0;
   background: var(--hb-bar-bg);
 }
 
 .hb-topbar__inner{
-
     max-width:1440px;
-
     margin:auto;
-
     height:64px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     gap:360px;
-
     padding:10px 50px;
-
 }
 
 .hb-logo {
   width:151.44px;
   height:19px;
-  margin: 0;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.08em;
+  white-space: nowrap;
   display:flex;
   align-items:center;
 }
@@ -155,17 +140,18 @@
 .hb-topbar__message {
   width:260px;
   height:14px;
-  margin: 0;
   font-family:'Jost', sans-serif;
   font-weight:400;
   font-size:16px;
   line-height:13.42px;
   letter-spacing:0px;
   text-align: center;
+  white-space:nowrap;
   display:flex;
   align-items:center;
   justify-content:center;
 }
+
 .hb-topbar .hb-btn--yellow{
   width:207px;
   height:44px;
@@ -173,7 +159,7 @@
 }
 
 .hb-menu-toggle {
-  display: none; /* desktop: hidden, shown on mobile */
+  display: none;
   flex-direction: column;
   justify-content: center;
   gap: 4px;
@@ -192,181 +178,101 @@
 }
 
 /* ===========================================
-   Hero
+   Hero — percentage-based so it scales at any viewport width
+   Reference frame: 1440 x 844
 =========================================== */
 
 .hb-hero{
-
     max-width:1440px;
-
-    margin:0;
-
+    width:100%;
+    margin:0 auto;
     position:relative;
-
-    height:844px; /* 442px + 402px, adjust if your design needs more */
-
+    aspect-ratio:1440/844;
+    overflow:hidden;
 }
 
 .hb-top-image{
-
     position:absolute;
-
-    width:1440px;
-
-    height:390px;
-
-    top:64px;
-
+    top:7.58%;      /* 64/844 */
     left:0;
-
-    overflow:hidden;
-
+    width:100%;
+    height:46.21%;  /* 390/844 */
 }
 
 .hb-top-image img{
-
     width:100%;
-
     height:100%;
-
     display:block;
-
     object-fit:cover;
-
 }
 
-/* ---------- Bottom Layout ---------- */
 .hb-bottom{
-
-    position:static; /* no longer a grid — children positioned individually */
-
+    position:static;
 }
-/* ---------- Left ---------- */
 
 .hb-left{
-
     position:static;
-
 }
 
 .hb-hero__heading{
-
     position:absolute;
-
-    width:459px;
-
-    height:70px;
-
-    top:489px;
-
-    left:67px;
-
-    margin:0;
-
+    top:57.94%;     /* 489/844 */
+    left:4.65%;     /* 67/1440 */
+    width:31.88%;   /* 459/1440 */
+    height:8.29%;   /* 70/844 */
     font-size:64px;
-
     font-weight:700;
-
     line-height:70px;
-
     letter-spacing:-2px;
-
 }
 
 .hb-hero__description{
-
     position:absolute;
-
-    width:483px;
-
-    height:84px;
-
-    top:609px;
-
-    left:67px;
-
-    margin:0;
-
+    top:72.16%;     /* 609/844 */
+    left:4.65%;     /* 67/1440 */
+    width:33.54%;   /* 483/1440 */
+    height:9.95%;   /* 84/844 */
     font-size:20px;
-
     line-height:28px;
-
 }
 
 .hb-hero__description p{
-
     margin:0;
 }
 
-.hb-btn--black{
-
-    position:absolute;
-
-    width:220px;
-
-    height:50px;
-
-    top:743px;
-
-    left:67px;
-
-    background:black;
-
-    color:white;
-
-}
-
-/* ---------- Right ---------- */
 .hb-right{
-
     position:absolute;
-
-    width:890px;
-
-    height:402px;
-
-    top:442px;
-
-    left:550px;
-
-    display:block;
-
+    top:52.37%;     /* 442/844 */
+    left:38.19%;    /* 550/1440 */
+    width:61.81%;   /* 890/1440 */
+    height:47.63%;  /* 402/844 */
 }
 
 .hb-right img{
-
     width:100%;
-
     height:100%;
-
     display:block;
-
     object-fit:contain;
-
 }
 
 /* ---------- Hero Button ---------- */
 
 .hb-btn--black{
-
-    width:220px;
-
-    height:50px;
-
+    position:absolute;
+    top:88.03%;     /* 743/844 */
+    left:4.65%;     /* 67/1440 */
+    width:15.28%;   /* 220/1440 */
+    height:5.92%;   /* 50/844 */
+    min-width:150px; /* keeps button usable if hero scales very small */
     background:black;
-
     color:white;
-
 }
+
 .hb-btn__arrow img{
-
     width:18px;
-
     transition: filter var(--hb-transition);
-
 }
 
-/* Arrow mirrors label color: dark on yellow bg, white on black bg — and swaps on hover */
 .hb-btn--yellow .hb-btn__arrow img{
     filter:none;
 }
@@ -382,25 +288,18 @@
 .hb-btn--black:focus-visible .hb-btn__arrow img{
     filter:none;
 }
+
 /* --------------------------------------------------------------- Infobar */
 
 .hb-infobar{
-
     width:100%;
-
     height:44px;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     background:#f5f5f5;
-
 }
 .hb-infobar p {
-  margin: 0;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.06em;
