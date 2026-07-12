@@ -1306,6 +1306,20 @@ body.hg-no-scroll{
 
     cursor:pointer;
 }
+.hb-mobile-menu__header{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.hb-mobile-menu__logo{
+  margin:0;
+  flex:1;
+  text-align:center;
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:.08em;
+  padding-right:34px; /* balances the close button width so text stays centered */
+}
 .hb-mobile-menu__logo{
   margin:0;
   text-align:center;
