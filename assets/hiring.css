@@ -507,15 +507,6 @@
     z-index:2;
 
 }
-.hg-popup-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    background:linear-gradient(0,0,0, rgba(0,0,0,.7) 100%);
-
-}
 
 html.hg-no-scroll,
 body.hg-no-scroll{
@@ -525,9 +516,6 @@ body.hg-no-scroll{
     height:100% !important;
 
 }
-
-
-
 .hg-close{
 
     position:absolute;
@@ -740,8 +728,7 @@ body.hg-no-scroll{
     line-height: 100%;
     letter-spacing: -2%;
     text-transform: capitalize;
-
-}
+  }
 
 .hg-color-item:not(:first-child){
 
