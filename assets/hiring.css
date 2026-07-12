@@ -506,7 +506,12 @@
     background-image:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.7) 100%);
 
 }
+html.hg-no-scroll,
+body.hg-no-scroll{
 
+    overflow:hidden !important;
+
+}
 .hg-popup-box{
 
     position:relative;
