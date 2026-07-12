@@ -789,19 +789,17 @@ body.hg-no-scroll{
 
 }
 
-.hg-color-btn:hover::before,
 .hg-color-btn.is-selected::before{
 
     transform:scaleX(1);
 
 }
 
-.hg-color-btn:hover,
 .hg-color-btn.is-selected{
 
     color:#fff;
 
-    background:#fff; /* keep base white, ::before handles the black fill */
+    background:#fff;
 
 }
 
@@ -815,7 +813,6 @@ body.hg-no-scroll{
 
 }
 
-.hg-color-btn:hover .hg-color-label,
 .hg-color-btn.is-selected .hg-color-label{
 
     font-weight:600;
