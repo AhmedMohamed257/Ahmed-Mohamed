@@ -1066,7 +1066,20 @@ body.hg-no-scroll{
 
     justify-content:center;
 }
-
+.hb-hero .hb-btn--black:hover .hb-btn__fill,
+.hb-hero .hb-btn--black:focus-visible .hb-btn__fill{
+    transform:scaleX(0);
+}
+.hb-hero .hb-btn--black:hover .hb-btn__label,
+.hb-hero .hb-btn--black:hover .hb-btn__arrow,
+.hb-hero .hb-btn--black:focus-visible .hb-btn__label,
+.hb-hero .hb-btn--black:focus-visible .hb-btn__arrow{
+    color:var(--hb-white);
+}
+.hb-hero .hb-btn--black:hover .hb-btn__arrow img,
+.hb-hero .hb-btn--black:focus-visible .hb-btn__arrow img{
+    filter:brightness(0) invert(1);
+}
 
 /* -----------------------------
    Left Content
