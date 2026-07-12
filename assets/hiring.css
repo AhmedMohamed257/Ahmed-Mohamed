@@ -1054,3 +1054,18 @@ body.hg-no-scroll{
 }
 
 }
+@media(max-width:749px){
+
+.hb-hero__heading{
+
+    width:auto;
+
+    font-size:48px;
+
+    line-height:1.05;
+
+    margin-bottom:18px;
+
+}
+
+}
