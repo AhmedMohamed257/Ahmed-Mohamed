@@ -795,14 +795,6 @@ body.hg-no-scroll{
 
 }
 
-.hg-color-btn.is-selected{
-
-    color:#fff;
-
-    background:#fff;
-
-}
-
 .hg-color-label{
 
     position:relative;
@@ -813,7 +805,7 @@ body.hg-no-scroll{
 
 }
 
-.hg-color-btn.is-selected .hg-color-label{
+.hg-color-label{
 
     font-weight:600;
 
