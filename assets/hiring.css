@@ -763,16 +763,45 @@ body.hg-no-scroll{
 
     cursor:pointer;
 
-    transition:background-color .25s ease, color .25s ease;
+    overflow:hidden;
+
+    z-index:0;
+
+}
+
+.hg-color-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:-1;
+
+    background:#000;
+
+    transform:scaleX(0);
+
+    transform-origin:left center;
+
+    transition:transform .3s ease;
+
+}
+
+.hg-color-btn:hover::before,
+.hg-color-btn.is-selected::before{
+
+    transform:scaleX(1);
 
 }
 
 .hg-color-btn:hover,
 .hg-color-btn.is-selected{
 
-    background:#000;
-
     color:#fff;
+
+    background:#fff; /* keep base white, ::before handles the black fill */
 
 }
 
@@ -781,6 +810,8 @@ body.hg-no-scroll{
     position:relative;
 
     z-index:1;
+
+    transition:font-weight .2s ease;
 
 }
 
