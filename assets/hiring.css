@@ -685,6 +685,19 @@ body.hg-no-scroll{
 
 /* ---------- Color section ---------- */
 
+.hg-popup-color-section{
+
+    position:absolute;
+
+    top:186px;
+
+    left:20px;
+
+    width:271px;
+
+    height:64.477px;
+
+}
 
 .hg-colors{
 
