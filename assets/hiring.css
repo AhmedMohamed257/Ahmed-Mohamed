@@ -224,78 +224,15 @@
 
 /* ---------- Left ---------- */
 
-/* ---------- Left ---------- */
-
 .hb-left{
 
-    position:static;
+    position:relative;
 
-}
+    z-index:2;
 
-.hb-hero__heading{
+    padding-left:67px;
 
-    position:absolute;
-
-    width:459px;
-
-    height:70px;
-
-    top:489px;
-
-    left:67px;
-
-    margin:0;
-
-    font-size:64px;
-
-    font-weight:700;
-
-    line-height:70px;
-
-    letter-spacing:-2px;
-
-}
-
-.hb-hero__description{
-
-    position:absolute;
-
-    width:483px;
-
-    height:84px;
-
-    top:609px;
-
-    left:67px;
-
-    margin:0;
-
-    font-size:20px;
-
-    line-height:28px;
-
-}
-
-.hb-hero__description p{
-
-    margin:0;
-}
-
-.hb-btn--black{
-
-    position:absolute;
-
-    width:220px;
-
-    height:50px;
-
-    top:743px;
-
-    left:67px;
-
-    background:black;
-
-    color:white;
+    padding-top:42px;
 
 }
 
