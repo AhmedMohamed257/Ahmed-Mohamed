@@ -685,60 +685,6 @@ body.hg-no-scroll{
 
 /* ---------- Color section ---------- */
 
-.hg-popup-color-section{
-
-    position:absolute;
-
-    top:186px;
-
-    left:20px;
-
-    width:271px;
-
-    height:64.477px;
-
-}
-
-.hg-colors{
-
-    display:flex;
-
-    height:40px;
-
-    border:1px solid #ddd;
-
-}
-
-.hg-color-item{
-
-    display:flex;
-
-    align-items:stretch;
-
-    flex:1 1 50%;
-
-}
-
-.hg-color-item:not(:first-child){
-
-    border-left:1px solid #ddd;
-
-}
-
-.hg-color-swatch{
-
-    flex:0 0 auto;
-
-    width:5px;
-
-    height:100%;
-
-    display:block;
-
-    vertical-align:top;
-
-}
-
 .hg-color-btn{
 
     position:relative;
@@ -799,8 +745,6 @@ body.hg-no-scroll{
 
     color:#fff;
 
-    background:#fff;
-
 }
 
 .hg-color-label{
@@ -809,16 +753,7 @@ body.hg-no-scroll{
 
     z-index:1;
 
-    transition:font-weight .2s ease;
-
 }
-
-.hg-color-label{
-
-    font-weight:600;
-
-}
-
 /* ---------- Size section ---------- */
 
 .hg-popup-size-section{
