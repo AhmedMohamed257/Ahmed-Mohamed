@@ -763,13 +763,6 @@ body.hg-no-scroll{
 
 }
 
-.hg-color-label{
-
-    position:relative;
-
-    z-index:1;
-
-}
 
 .hg-color-btn::before{
 
@@ -803,6 +796,13 @@ body.hg-no-scroll{
 
 }
 
+.hg-color-label{
+
+    position:relative;
+
+    z-index:1;
+
+}
 /* ---------- Size section ---------- */
 
 .hg-popup-size-section{
