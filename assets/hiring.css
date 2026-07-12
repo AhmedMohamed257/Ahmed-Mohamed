@@ -761,8 +761,11 @@ body.hg-no-scroll{
 
     cursor:pointer;
 
-}
+    overflow:hidden;
 
+    z-index:0;
+
+}
 
 .hg-color-btn::before{
 
