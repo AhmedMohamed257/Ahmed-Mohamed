@@ -241,9 +241,6 @@
     position:static; /* no longer a grid — children positioned individually */
 
 }
-
-/* ---------- Left ---------- */
-
 /* ---------- Left ---------- */
 
 .hb-left{
@@ -1057,11 +1054,25 @@ body.hg-no-scroll{
 }
 
 .hb-topbar__inner{
-    height:65px;
-    padding:23px 16px;
-    display:grid;
-    grid-template-columns:18px 1fr 18px;
+
+    max-width:1440px;
+
+    margin:auto;
+
+    box-sizing:border-box;
+
+    height:64px;
+
+    display:flex;
+
     align-items:center;
+
+    justify-content:center;
+
+    gap:360px;
+
+    padding:10px 50px;
+
 }
 
 .hb-menu-toggle{
