@@ -979,93 +979,370 @@ body.hg-no-scroll{
 /* ================================================================
    Mobile (<= 749px)
    ================================================================ */
-@media screen and (max-width: 749px) {
+/* ==========================================================
+   MOBILE (0px - 749px)
+========================================================== */
 
-  .hb-topbar__inner {
-    grid-template-columns: 24px 1fr 24px; /* hamburger | centered logo | spacer for symmetry */
-    padding: 14px 20px;
-  }
-  .hb-menu-toggle {
-    display: flex;
-  }
-  .hb-logo {
-    font-size: 15px;
-    text-align: center;
-  }
-  /* message + choose-gift button move into the mobile menu area on small
-     screens per the Figma mobile frame — hide from the bar itself */
-  .hb-topbar__message,
-  .hb-topbar .hb-btn--yellow {
-    display: none;
-  }
+@media screen and (max-width:749px){
 
-  .hb-hero {
-    min-height: 520px;
-  }
-  .hb-hero__content {
-    max-width: 100%;
-    align-items: center;
-    text-align: center;
-    padding: 0 24px 40px;
-  }
-  .hb-hero__heading {
-    font-size: 34px;
-  }
-  .hb-hero__description {
-    font-size: 14px;
-  }
-  .hb-hero__description p {
-    max-width: 320px;
-    margin: 0 auto;
-  }
+/* -----------------------------
+   Top Bar
+------------------------------*/
 
-  .hb-infobar p {
-    font-size: 10px;
-  }
+.hb-topbar{
+    position:relative;
+    z-index:100;
 }
-@media (max-width:749px){
+
+.hb-topbar__inner{
+
+    height:68px;
+
+    padding:0 18px;
+
+    display:grid;
+
+    grid-template-columns:32px 1fr 32px;
+
+    align-items:center;
+}
+
+.hb-menu-toggle{
+    display:flex;
+    width:28px;
+    height:28px;
+}
+
+.hb-logo{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    text-align:center;
+
+    letter-spacing:.08em;
+}
+
+.hb-topbar__message,
+.hb-topbar .hb-btn--yellow{
+    display:none;
+}
+
+
+/* -----------------------------
+   Hero
+------------------------------*/
+
+.hb-hero{
+    width:100%;
+}
+
+.hb-top-image{
+
+    width:100%;
+
+    height:auto;
+}
+
+.hb-top-image img{
+
+    width:100%;
+
+    height:auto;
+
+    display:block;
+
+    object-fit:cover;
+}
 
 .hb-bottom{
 
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
+    justify-content:center;
 }
+
+
+/* -----------------------------
+   Left Content
+------------------------------*/
 
 .hb-left{
 
-    order:1;
-    padding:40px 20px 20px;
+    width:100%;
+
+    padding:42px 22px 26px;
+
     text-align:center;
+
+    order:1;
 }
-
-.hb-right{
-
-    order:2;
-    justify-content:center;
-    width:100%;
-}
-
-.hb-right img{
-
-    width:100%;
-    max-width:360px;
-    height:auto;
-}
-
-}
-@media(max-width:749px){
 
 .hb-hero__heading{
 
-    width:auto;
+    width:100%;
+
+    margin:0 auto 20px;
 
     font-size:48px;
 
     line-height:1.05;
 
-    margin-bottom:18px;
+    letter-spacing:-1px;
+}
 
+.hb-hero__description{
+
+    width:100%;
+
+    max-width:290px;
+
+    margin:0 auto 30px;
+
+    font-size:18px;
+
+    line-height:1.4;
+}
+
+.hb-hero__description p{
+    margin:0;
+}
+
+.hb-btn--black{
+
+    width:250px;
+
+    height:50px;
+
+    margin:auto;
+}
+
+
+/* -----------------------------
+   Right Illustration
+------------------------------*/
+
+.hb-right{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    order:2;
+
+    margin-top:30px;
+}
+
+.hb-right img{
+
+    width:100%;
+
+    max-width:360px;
+
+    height:auto;
+
+    display:block;
+}
+
+
+/* -----------------------------
+   Info Bar
+------------------------------*/
+
+.hb-infobar{
+
+    height:auto;
+
+    padding:14px 20px;
+
+    text-align:center;
+}
+
+.hb-infobar p{
+
+    font-size:11px;
+
+    line-height:1.4;
+
+    letter-spacing:.05em;
+}
+
+
+/* -----------------------------
+   Grid Section
+------------------------------*/
+
+.hiring-grid{
+
+    padding:55px 0;
+}
+
+.page-width{
+
+    padding:0 20px;
+}
+
+.hg-header{
+
+    margin-bottom:30px;
+
+    text-align:center;
+}
+
+.hg-header h2{
+
+    font-size:28px;
+
+    line-height:1.3;
+}
+
+.hg-products{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:4px;
+}
+
+.hg-card{
+
+    width:100%;
+
+    height:auto;
+}
+
+.hg-image{
+
+    width:100%;
+
+    aspect-ratio:1/1.15;
+}
+
+.hg-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+}
+
+.hg-plus{
+
+    width:34px;
+
+    height:34px;
+}
+
+.hg-plus img{
+
+    width:34px;
+
+    height:34px;
+}
+
+
+/* -----------------------------
+   Popup
+------------------------------*/
+
+.hg-popup-box{
+
+    width:92vw;
+
+    max-width:320px;
+
+    height:446px;
+}
+
+
+/* -----------------------------
+   Mobile Menu
+------------------------------*/
+
+.hb-mobile-menu{
+
+    padding:20px;
+
+    background:#fff;
+
+    overflow-y:auto;
+}
+
+.hb-mobile-menu__close{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    font-size:34px;
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+}
+
+.hb-mobile-message{
+
+    margin:75px auto 24px;
+
+    max-width:260px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    line-height:1.4;
+}
+
+.hb-mobile-btn{
+
+    display:flex;
+
+    width:245px;
+
+    height:46px;
+
+    margin:0 auto 35px;
+}
+
+.hb-mobile-menu__list{
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+    text-align:center;
+}
+
+.hb-mobile-menu__list li{
+
+    margin-bottom:22px;
+}
+
+.hb-mobile-menu__list a{
+
+    text-decoration:none;
+
+    color:#111;
+
+    font-size:20px;
+
+    font-weight:500;
 }
 
 }
