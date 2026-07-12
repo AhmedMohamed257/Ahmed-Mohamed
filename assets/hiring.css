@@ -726,14 +726,13 @@ body.hg-no-scroll{
 }
 
 .hg-color-item{
-
-    display:flex;
-
-    align-items:stretch;
-
-    flex:1 1 50%;
-
-}
+    width: 112px;
+    height: 18px;
+    top: 35px;
+    left: 15px;
+    angle: 0 deg;
+    opacity: 1;
+  }
 
 .hg-color-item:not(:first-child){
 
