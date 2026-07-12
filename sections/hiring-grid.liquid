@@ -9,136 +9,132 @@
     <div class="hg-products">
 
       {% for block in section.blocks %}
-        {% assign product = block.settings.product %}
-        {% if product == blank %}{% continue %}{% endif %}
+      <div class="hg-card" {{ block.shopify_attributes }}>
 
-        <div class="hg-card" {{ block.shopify_attributes }}>
+        <div class="hg-image">
 
-          <div class="hg-image">
+          {% if block.settings.image %}
+            <img
+              src="{{ block.settings.image | image_url: width: 700 }}"
+              alt="{{ block.settings.title }}"
+              loading="lazy"
+              width="{{ block.settings.image.width }}"
+              height="{{ block.settings.image.height }}">
+          {% endif %}
 
-            {% if product.featured_image %}
+          <button
+              class="hg-plus"
+              type="button"
+              data-popup="popup-{{ block.id }}"
+              aria-label="Quick view {{ block.settings.title }}"
+          >
+
               <img
-                src="{{ product.featured_image | image_url: width: 700 }}"
-                alt="{{ product.title | escape }}"
-                loading="lazy"
-                width="{{ product.featured_image.width }}"
-                height="{{ product.featured_image.height }}">
+                  src="{{ 'plus-icon.svg' | asset_url }}"
+                  alt=""
+                  width="42"
+                  height="42"
+            >
+
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- Popup -->
+
+      <div class="hg-popup" id="popup-{{ block.id }}">
+
+        <div class="hg-popup-overlay"></div>
+
+        <div class="hg-popup-box">
+
+          <button class="hg-close" type="button" aria-label="Close">&times;</button>
+
+          <div class="hg-popup-image">
+
+            {% if block.settings.popup_image %}
+              <img
+              src="{{ block.settings.popup_image | image_url: width: 300 }}"
+              width="120"
+              height="140"
+              alt="{{ block.settings.title }}">
             {% endif %}
 
-            <button
-                class="hg-plus"
-                type="button"
-                data-popup="popup-{{ block.id }}"
-                aria-label="Quick view {{ product.title | escape }}"
-            >
-                <img src="{{ 'plus-icon.svg' | asset_url }}" alt="" width="42" height="42">
-            </button>
-
           </div>
 
-        </div>
+          <h3 class="hg-popup-title">{{ block.settings.title }}</h3>
 
-        <!-- Popup -->
-        <div class="hg-popup" id="popup-{{ block.id }}">
+          <p class="hg-popup-price">{{ block.settings.price }}</p>
 
-          <div class="hg-popup-overlay"></div>
+          <div class="hg-popup-description">
+            {{ block.settings.description }}
+          </div>
 
-          <div class="hg-popup-box">
+          <div class="hg-popup-color-section">
 
-            <button class="hg-close" type="button" aria-label="Close">&times;</button>
+            <span class="hg-popup-field-label">Color</span>
 
-            <div class="hg-popup-image">
-              {% if product.featured_image %}
-                <img
-                  src="{{ product.featured_image | image_url: width: 300 }}"
-                  width="120"
-                  height="140"
-                  alt="{{ product.title | escape }}">
-              {% endif %}
-            </div>
+            <div class="hg-colors">
 
-            <h3 class="hg-popup-title">{{ product.title }}</h3>
-
-            <p class="hg-popup-price" data-price>{{ product.selected_or_first_available_variant.price | money }}</p>
-
-            <div class="hg-popup-description">
-              {{ product.description }}
-            </div>
-
-            <product-quickview
-              class="hg-quickview"
-              data-product-handle="{{ product.handle }}"
-              data-section-auto-add-variant="{{ section.settings.auto_add_product.selected_or_first_available_variant.id }}"
-            >
-
-              <form data-quickview-form>
-
-                {%- assign option_names = product.options_with_values -%}
-
-                {%- for option in option_names -%}
-
-                  {%- assign option_index = forloop.index -%}
-
-                  <div class="hg-popup-{{ option.name | handleize }}-section hg-popup-option-section" data-option-index="{{ option_index }}">
-
-                    <span class="hg-popup-field-label">{{ option.name }}</span>
-
-                    {%- if option.name == "Color" or option.name == "Colour" -%}
-
-                      <div class="hg-colors" data-option-position="{{ option_index }}">
-                        {%- for value in option.values -%}
-                          <div class="hg-color-item">
-                            <svg class="hg-color-swatch" width="5" height="40" viewBox="0 0 5 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                              <rect x="0" y="0" width="5" height="40" fill="{{ value | handleize }}"/>
-                            </svg>
-                            <button
-                              type="button"
-                              class="hg-color-btn{% if forloop.first %} is-selected{% endif %}"
-                              data-value="{{ value | escape }}"
-                              data-option-position="{{ option_index }}"
-                            >
-                              <span class="hg-color-label">{{ value }}</span>
-                            </button>
-                          </div>
-                        {%- endfor -%}
-                      </div>
-
-                    {%- else -%}
-
-                      <div class="hg-select-wrap">
-                        <select class="hg-select" data-option-position="{{ option_index }}">
-                          {%- for value in option.values -%}
-                            <option value="{{ value | escape }}"{% if forloop.first %} selected{% endif %}>{{ value }}</option>
-                          {%- endfor -%}
-                        </select>
-                      </div>
-
-                    {%- endif -%}
-
-                  </div>
-
-                {%- endfor -%}
-
-                <input type="hidden" name="id" data-variant-id value="{{ product.selected_or_first_available_variant.id }}">
-
-                <button type="submit" class="hg-popup-cta" data-add-to-cart>
-                  <span data-cta-label>ADD TO CART</span>
-                  <img src="{{ 'icon-arrow.svg' | asset_url }}" alt="">
+              <div class="hg-color-item">
+                <svg class="hg-color-swatch" width="5" height="40" viewBox="0 0 5 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0" y="0" width="5" height="40" fill="{{ block.settings.color1_swatch }}"/>
+                </svg>
+                <button type="button" class="hg-color-btn is-selected" data-color="{{ block.settings.color1 | escape }}">
+                  <span class="hg-color-label">{{ block.settings.color1 }}</span>
                 </button>
+              </div>
 
-                <p class="hg-popup-status" data-status role="status" aria-live="polite"></p>
+              <div class="hg-color-item">
+                <svg class="hg-color-swatch" width="5" height="40" viewBox="0 0 5 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0" y="0" width="5" height="40" fill="{{ block.settings.color2_swatch }}"/>
+                </svg>
+                <button type="button" class="hg-color-btn" data-color="{{ block.settings.color2 | escape }}">
+                  <span class="hg-color-label">{{ block.settings.color2 }}</span>
+                </button>
+              </div>
 
-              </form>
-
-              <script type="application/json" data-product-json>
-                {{ product.variants | json }}
-              </script>
-
-            </product-quickview>
+            </div>
 
           </div>
 
+          <div class="hg-popup-size-section">
+
+            <span class="hg-popup-field-label">Size</span>
+
+            <div class="hg-select-wrap">
+
+              <select class="hg-select">
+
+                <option value="">{{ block.settings.size_placeholder }}</option>
+
+                <option value="S">S</option>
+
+                <option value="M">M</option>
+
+                <option value="L">L</option>
+
+                <option value="XL">XL</option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+          <a href="{{ block.settings.button_link }}" class="hg-popup-cta">
+
+            <span>{{ block.settings.button_text }}</span>
+
+            <img src="{{ 'icon-arrow.svg' | asset_url }}" alt="">
+
+          </a>
+
         </div>
+
+      </div>
 
       {% endfor %}
 
@@ -155,38 +151,119 @@
   "class":"section-hiring-grid",
 
   "settings":[
+
     {
       "type":"text",
       "id":"heading",
       "label":"Heading",
       "default":"Tisso vision in the wild"
-    },
-    {
-      "type":"product",
-      "id":"auto_add_product",
-      "label":"Auto-add product",
-      "info":"Automatically added to cart when a customer selects a variant with both Black and Medium options (e.g. Soft Winter Jacket)"
     }
+
   ],
 
   "blocks":[
+
     {
       "type":"product",
+
       "name":"Product",
+
       "settings":[
+
         {
-          "type":"product",
-          "id":"product",
-          "label":"Product"
+          "type":"image_picker",
+          "id":"image",
+          "label":"Grid Image"
+        },
+
+        {
+          "type":"image_picker",
+          "id":"popup_image",
+          "label":"Popup Image"
+        },
+
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Title",
+          "default":"Orange Wide Leg"
+        },
+
+        {
+          "type":"text",
+          "id":"price",
+          "label":"Price",
+          "default":"980,00€"
+        },
+
+        {
+          "type":"richtext",
+          "id":"description",
+          "label":"Description",
+          "default":"<p>This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.</p>"
+        },
+
+        {
+          "type":"text",
+          "id":"color1",
+          "label":"First Color Label",
+          "default":"White"
+        },
+
+        {
+          "type":"color",
+          "id":"color1_swatch",
+          "label":"First Color Swatch",
+          "default":"#FFFFFF"
+        },
+
+        {
+          "type":"text",
+          "id":"color2",
+          "label":"Second Color Label",
+          "default":"Black"
+        },
+
+        {
+          "type":"color",
+          "id":"color2_swatch",
+          "label":"Second Color Swatch",
+          "default":"#000000"
+        },
+
+        {
+          "type":"text",
+          "id":"size_placeholder",
+          "label":"Size Placeholder",
+          "default":"Choose your size"
+        },
+
+        {
+          "type":"text",
+          "id":"button_text",
+          "label":"Button",
+          "default":"ADD TO CART"
+        },
+
+        {
+          "type":"url",
+          "id":"button_link",
+          "label":"Button Link"
         }
+
       ]
+
     }
+
   ],
 
   "max_blocks":6,
 
   "presets":[
-    { "name":"Hiring Grid" }
+    {
+      "name":"Hiring Grid"
+    }
   ]
+
 }
 {% endschema %}
