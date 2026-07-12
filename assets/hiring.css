@@ -1306,7 +1306,13 @@ body.hg-no-scroll{
 
     cursor:pointer;
 }
-
+.hb-mobile-menu__logo{
+  margin:0;
+  text-align:center;
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:.08em;
+}
 .hb-mobile-message{
 
     margin:75px auto 24px;
