@@ -715,21 +715,59 @@ body.hg-no-scroll{
 
 .hg-colors{
 
+    position:relative;
+
     display:flex;
 
     height:40px;
 
     border:1px solid #ddd;
 
+    overflow:hidden;
+
+}
+
+.hg-colors__thumb{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:50%;
+
+    height:100%;
+
+    background:#000;
+
+    transform:translateX(0%);
+
+    transition:transform var(--hb-transition);
+
+    z-index:0;
+
+    pointer-events:none;
+
+}
+
+.hg-colors.is-second .hg-colors__thumb{
+
+    transform:translateX(100%);
+
 }
 
 .hg-color-item{
+
+    position:relative;
 
     display:flex;
 
     align-items:stretch;
 
     flex:1 1 50%;
+
+    z-index:1;
 
 }
 
@@ -751,6 +789,10 @@ body.hg-no-scroll{
 
     vertical-align:top;
 
+    position:relative;
+
+    z-index:1;
+
 }
 
 .hg-color-btn{
@@ -765,7 +807,7 @@ body.hg-no-scroll{
 
     padding:0 14px;
 
-    background:#fff;
+    background:transparent;
 
     color:#111;
 
@@ -777,34 +819,7 @@ body.hg-no-scroll{
 
     cursor:pointer;
 
-    overflow:hidden;
-
-}
-
-.hg-color-btn::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:#000;
-
-    transform:scaleX(0);
-
-    transform-origin:left center;
-
-    transition:transform var(--hb-transition);
-
-    z-index:0;
-
-}
-
-.hg-color-btn:hover::before,
-.hg-color-btn.is-selected::before{
-
-    transform:scaleX(1);
+    z-index:1;
 
 }
 
@@ -818,7 +833,6 @@ body.hg-no-scroll{
 
 }
 
-.hg-color-btn:hover .hg-color-label,
 .hg-color-btn.is-selected .hg-color-label{
 
     color:#fff;
