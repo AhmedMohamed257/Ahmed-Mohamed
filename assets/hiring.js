@@ -1,8 +1,7 @@
 /**
  * Hiring Test — shared script
  * Banner: mobile hamburger menu open/close.
- * Grid: quick-view popup open/close (overlay, close button, Escape key)
- *       and color-swatch selection.
+ * Grid: quick-view popup open/close (overlay, close button, Escape key).
  */
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.hb-menu-toggle').forEach(function (toggle) {
@@ -61,15 +60,6 @@ document.addEventListener('click', function (e) {
       document.body.classList.remove('hg-no-scroll');
     }
     return;
-  }
-
-  const colorBtn = e.target.closest('.hg-color-btn');
-  if (colorBtn) {
-    const group = colorBtn.closest('.hg-colors');
-    group.querySelectorAll('.hg-color-btn').forEach(function (btn) {
-      btn.classList.remove('is-selected');
-    });
-    colorBtn.classList.add('is-selected');
   }
 });
 
