@@ -475,8 +475,7 @@
 =========================== */
 
 .hg-popup{
-  
-    background::linear-gradient(0,0,0,0.3)
+
     position:fixed;
 
     inset:0;
@@ -493,6 +492,21 @@
 .hg-popup.is-open{
     display:flex;
 }
+
+.hg-popup-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+    background-color:rgba(0,0,0,.5);
+
+    background-image:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.7) 100%);
+
+}
+
 .hg-popup-box{
 
     position:relative;
@@ -508,12 +522,7 @@
     z-index:2;
 
 }
-html.hg-no-scroll,
-body.hg-no-scroll{
 
-    overflow:hidden !important;
-
-}
 .hg-close{
 
     position:absolute;
@@ -574,13 +583,13 @@ body.hg-no-scroll{
 
     position:absolute;
 
-    top:49px;
+    top:39px;
 
     left:145px;
 
     width:136px;
 
-    height:19px;
+    height:38px;
 
     margin:0;
 
@@ -695,20 +704,18 @@ body.hg-no-scroll{
 
     width:271px;
 
-    height:64.48px;
+    height:64.477px;
 
 }
 
 .hg-colors{
 
     display:flex;
+
+    height:40px;
+
     border:1px solid #ddd;
-    width: 271px;
-    height: 40.441322326660156px;
-    top: 24.04px;
-    angle: 0 deg;
-    opacity: 1;
-    border-width: 0.5px;
+
 }
 
 .hg-color-item{
@@ -718,15 +725,8 @@ body.hg-no-scroll{
     align-items:stretch;
 
     flex:1 1 50%;
-    font-family: Jost;
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 18px;
-    leading-trim: NONE;
-    line-height: 100%;
-    letter-spacing: -2%;
-    text-transform: capitalize;
-  }
+
+}
 
 .hg-color-item:not(:first-child){
 
@@ -772,34 +772,16 @@ body.hg-no-scroll{
 
     cursor:pointer;
 
-    overflow:hidden;
+    transition:background-color .25s ease, color .25s ease;
 
 }
 
-.hg-color-btn::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
+.hg-color-btn:hover,
+.hg-color-btn.is-selected{
 
     background:#000;
 
-    transform:scaleX(0);
-
-    transform-origin:right center;
-
-    transition:transform var(--hb-transition);
-
-    z-index:0;
-
-}
-
-.hg-color-btn:hover::before,
-.hg-color-btn.is-selected::before{
-
-    transform:scaleX(1);
+    color:#fff;
 
 }
 
@@ -809,14 +791,10 @@ body.hg-no-scroll{
 
     z-index:1;
 
-    transition:color var(--hb-transition);
-
 }
 
 .hg-color-btn:hover .hg-color-label,
 .hg-color-btn.is-selected .hg-color-label{
-
-    color:#fff;
 
     font-weight:600;
 
