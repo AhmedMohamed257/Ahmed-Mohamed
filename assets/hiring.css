@@ -716,11 +716,13 @@ body.hg-no-scroll{
 .hg-colors{
 
     display:flex;
-
-    height:40px;
-
     border:1px solid #ddd;
-
+    width: 271px;
+    height: 40.441322326660156px;
+    top: 24.04px;
+    angle: 0 deg;
+    opacity: 1;
+    border-width: 0.5px;
 }
 
 .hg-color-item{
