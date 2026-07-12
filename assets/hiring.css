@@ -181,23 +181,12 @@
 
     margin:auto;
 
-    position:relative;
-
-    height:844px; /* 442px + 402px, adjust if your design needs more */
-
 }
-
 .hb-top-image{
 
-    position:absolute;
-
-    width:1440px;
+    width:100%;
 
     height:390px;
-
-    top:64px;
-
-    left:0;
 
     overflow:hidden;
 
@@ -207,44 +196,38 @@
 
     width:100%;
 
-    height:100%;
+    height:390px;
 
     display:block;
 
     object-fit:cover;
 
 }
-
 /* ---------- Bottom Layout ---------- */
 .hb-bottom{
 
-    position:static; /* no longer a grid — children positioned individually */
+    display:grid;
+
+    grid-template-columns:
+
+    483px
+    1fr;
+
+    align-items:end;
 
 }
-
 /* ---------- Left ---------- */
 
-/* ---------- Left ---------- */
+.hb-hero__content{
 
-.hb-left{
+    padding:70px 70px 90px;
 
-    position:static;
-
+    z-index:2;
 }
 
 .hb-hero__heading{
 
-    position:absolute;
-
     width:459px;
-
-    height:70px;
-
-    top:489px;
-
-    left:67px;
-
-    margin:0;
 
     font-size:64px;
 
@@ -252,27 +235,21 @@
 
     line-height:70px;
 
+    margin-bottom:34px;
+
     letter-spacing:-2px;
 
 }
 
 .hb-hero__description{
 
-    position:absolute;
-
     width:483px;
-
-    height:84px;
-
-    top:609px;
-
-    left:67px;
-
-    margin:0;
 
     font-size:20px;
 
     line-height:28px;
+
+    margin-bottom:40px;
 
 }
 
@@ -280,47 +257,29 @@
 
     margin:0;
 }
+.hb-left{
 
-.hb-btn--black{
+    padding-left:67px;
 
-    position:absolute;
-
-    width:220px;
-
-    height:50px;
-
-    top:743px;
-
-    left:67px;
-
-    background:black;
-
-    color:white;
+    padding-top:42px;
 
 }
 
 /* ---------- Right ---------- */
 .hb-right{
 
-    position:absolute;
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:flex-end;
+
+}
+.hb-bottom-svg{
 
     width:890px;
 
     height:402px;
-
-    top:442px;
-
-    left:550px;
-
-    display:block;
-
-}
-
-.hb-right img{
-
-    width:100%;
-
-    height:100%;
 
     display:block;
 
