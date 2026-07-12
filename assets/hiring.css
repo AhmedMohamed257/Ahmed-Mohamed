@@ -162,6 +162,11 @@
   align-items:center;
   justify-content:center;
 }
+.hb-topbar .hb-btn--yellow{
+  width:207px;
+  height:44px;
+  padding:0 22px;
+}
 
 .hb-menu-toggle {
   display: none; /* desktop: hidden, shown on mobile */
