@@ -125,17 +125,37 @@
     </div>
   {%- endif -%}
 
-  <!-- Mobile slide-out menu (linked to main menu, matches hamburger in Figma) -->
-  <nav id="hb-mobile-menu-{{ section.id }}" class="hb-mobile-menu" aria-hidden="true">
-    <button type="button" class="hb-mobile-menu__close" aria-label="Close menu">&times;</button>
-    <ul class="hb-mobile-menu__list">
-      {%- for link in section.settings.mobile_menu.links -%}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-      {%- endfor -%}
-    </ul>
-  </nav>
+ <!-- Mobile slide-out menu -->
+<nav id="hb-mobile-menu-{{ section.id }}" class="hb-mobile-menu" aria-hidden="true">
+  <button type="button" class="hb-mobile-menu__close" aria-label="Close menu">&times;</button>
 
-</section>
+  <p class="hb-mobile-menu__logo">{{ section.settings.logo_text }}</p>
+
+  <p class="hb-mobile-message">{{ section.settings.header_text }}</p>
+
+  {%- if section.settings.header_button_text != blank -%}
+    
+      {% if section.settings.header_button_link != blank %}
+        href="{{ section.settings.header_button_link }}"
+      {% else %}
+        href="#" role="link" aria-disabled="true"
+      {% endif %}
+      class="hb-btn hb-btn--yellow hb-mobile-btn"
+    >
+      <span class="hb-btn__fill" aria-hidden="true"></span>
+      <span class="hb-btn__label">{{ section.settings.header_button_text }}</span>
+      <span class="hb-btn__arrow" aria-hidden="true">
+        {{- 'icon-arrow.svg' | inline_asset_content -}}
+      </span>
+    </a>
+  {%- endif -%}
+
+  <ul class="hb-mobile-menu__list">
+    {%- for link in section.settings.mobile_menu.links -%}
+      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+    {%- endfor -%}
+  </ul>
+</nav>
 
 {% schema %}
 {
